@@ -2,17 +2,22 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+  ofSetFrameRate(60);
+  transparent.afterMainSetup(ofxTransparentWindow::SCREENSAVER);
+  ofSetFullscreen(true);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+  transparent.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-
+  transparent.update();
+  ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
+  ofSetColor(255, 0, 255);
+  ofDrawCircle(200, 300, 60);
 }
 
 //--------------------------------------------------------------
@@ -66,6 +71,6 @@ void ofApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo){
 
 }
