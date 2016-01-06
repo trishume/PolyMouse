@@ -3,6 +3,8 @@
 #include "ofMain.h"
 #include "ofxTransparentWindow.h"
 
+#include "pupilGazeInput.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -23,4 +25,5 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ofxTransparentWindow transparent;
+		pupilGazeInput gazeInp;
 };

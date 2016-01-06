@@ -5,11 +5,14 @@ void ofApp::setup(){
   ofSetFrameRate(60);
   transparent.afterMainSetup(ofxTransparentWindow::SCREENSAVER);
   ofSetFullscreen(true);
+
+  gazeInp.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
   transparent.update();
+  gazeInp.update();
 }
 
 //--------------------------------------------------------------
@@ -17,7 +20,7 @@ void ofApp::draw(){
   transparent.update();
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
   ofSetColor(255, 0, 255);
-  ofDrawCircle(200, 300, 60);
+  ofDrawCircle(gazeInp.val.x, gazeInp.val.y, 5);
 }
 
 //--------------------------------------------------------------
