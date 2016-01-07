@@ -7,12 +7,14 @@ void ofApp::setup(){
   ofSetFullscreen(true);
 
   gazeInp.setup();
+  headInp.setup();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
   transparent.update();
   gazeInp.update();
+  headInp.update();
 }
 
 //--------------------------------------------------------------

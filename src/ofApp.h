@@ -4,6 +4,7 @@
 #include "ofxTransparentWindow.h"
 
 #include "pupilGazeInput.h"
+#include "linuxtrackInput.h"
 
 class ofApp : public ofBaseApp{
 
@@ -26,4 +27,5 @@ class ofApp : public ofBaseApp{
 
 		ofxTransparentWindow transparent;
 		pupilGazeInput gazeInp;
+		linuxtrackInput headInp;
 };
