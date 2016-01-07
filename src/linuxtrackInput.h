@@ -13,7 +13,7 @@
 
 class linuxtrackInput : public inputProcess<ofVec2f> {
 public:
-    linuxtrackInput();
-    void setup();
-    void update();
+  linuxtrackInput();
+  void setup();
+  void update();
 };

@@ -48,6 +48,7 @@
 		6A3DBC8D1C3DC1450074E872 /* linuxtrack.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC8B1C3DC1450074E872 /* linuxtrack.c */; };
 		6A3DBC901C3EAD480074E872 /* linuxtrackInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC8E1C3EAD480074E872 /* linuxtrackInput.cpp */; };
 		6A3DBC921C3EB97F0074E872 /* libdl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBC911C3EB97F0074E872 /* libdl.tbd */; };
+		6A3DBC951C3EBC790074E872 /* offsetTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC931C3EBC790074E872 /* offsetTransformer.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -267,6 +268,8 @@
 		6A3DBC8E1C3EAD480074E872 /* linuxtrackInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = linuxtrackInput.cpp; sourceTree = "<group>"; };
 		6A3DBC8F1C3EAD480074E872 /* linuxtrackInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linuxtrackInput.h; sourceTree = "<group>"; };
 		6A3DBC911C3EB97F0074E872 /* libdl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libdl.tbd; path = usr/lib/libdl.tbd; sourceTree = SDKROOT; };
+		6A3DBC931C3EBC790074E872 /* offsetTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = offsetTransformer.cpp; sourceTree = "<group>"; };
+		6A3DBC941C3EBC790074E872 /* offsetTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offsetTransformer.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
@@ -909,6 +912,8 @@
 				6ABDF1121C3D5F1500892E5F /* pupilGazeInput.h */,
 				6A3DBC8E1C3EAD480074E872 /* linuxtrackInput.cpp */,
 				6A3DBC8F1C3EAD480074E872 /* linuxtrackInput.h */,
+				6A3DBC931C3EBC790074E872 /* offsetTransformer.cpp */,
+				6A3DBC941C3EBC790074E872 /* offsetTransformer.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1116,6 +1121,7 @@
 				C14F66AD6EC898B72495878A /* push.cpp in Sources */,
 				EC7B7E0BF673B827DB1B64B0 /* random.cpp in Sources */,
 				4923A259CEB07FAC8597ADE4 /* raw_decoder.cpp in Sources */,
+				6A3DBC951C3EBC790074E872 /* offsetTransformer.cpp in Sources */,
 				3B6D0FAE69D44FC33E32B4F2 /* raw_encoder.cpp in Sources */,
 				FBEA6A02E4369CA573346490 /* reaper.cpp in Sources */,
 				2BD812EAD14AD969FEE6B4D3 /* rep.cpp in Sources */,

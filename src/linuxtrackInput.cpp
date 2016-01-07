@@ -33,7 +33,7 @@ void linuxtrackInput::update() {
     return;
   }
 
-  val.x = full_pose.raw_yaw;
-  val.y = full_pose.raw_pitch;
+  val.x = full_pose.raw_yaw * -1;
+  val.y = full_pose.raw_pitch * -1;
   cout << "head pose: " << val << endl;
 }
