@@ -12,7 +12,7 @@
 using namespace std;
 
 offsetTransformer::offsetTransformer(inputProcess<ofVec2f> *inp, std::string name)
-  : inp(inp), name(name), scale(5.0) {}
+  : inp(inp), name(name), scale(20.0) {}
 
 void offsetTransformer::setup() {
   inp->setup();

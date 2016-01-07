@@ -5,7 +5,7 @@
 
 #include "pupilGazeInput.h"
 #include "linuxtrackInput.h"
-#include "offsetTransformer.h"
+#include "offsetPipeline.h"
 
 class ofApp : public ofBaseApp{
 
@@ -29,7 +29,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ofxTransparentWindow transparent;
+
 		pupilGazeInput gazeInp;
 		linuxtrackInput ltrInp;
-		offsetTransformer headInp;
+		offsetPipeline pointer;
 };

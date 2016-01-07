@@ -49,6 +49,7 @@
 		6A3DBC901C3EAD480074E872 /* linuxtrackInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC8E1C3EAD480074E872 /* linuxtrackInput.cpp */; };
 		6A3DBC921C3EB97F0074E872 /* libdl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBC911C3EB97F0074E872 /* libdl.tbd */; };
 		6A3DBC951C3EBC790074E872 /* offsetTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC931C3EBC790074E872 /* offsetTransformer.cpp */; };
+		6A3DBC991C3ED49A0074E872 /* offsetPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC971C3ED49A0074E872 /* offsetPipeline.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -270,6 +271,8 @@
 		6A3DBC911C3EB97F0074E872 /* libdl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libdl.tbd; path = usr/lib/libdl.tbd; sourceTree = SDKROOT; };
 		6A3DBC931C3EBC790074E872 /* offsetTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = offsetTransformer.cpp; sourceTree = "<group>"; };
 		6A3DBC941C3EBC790074E872 /* offsetTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offsetTransformer.h; sourceTree = "<group>"; };
+		6A3DBC971C3ED49A0074E872 /* offsetPipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = offsetPipeline.cpp; sourceTree = "<group>"; };
+		6A3DBC981C3ED49A0074E872 /* offsetPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offsetPipeline.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
@@ -904,6 +907,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A3DBC971C3ED49A0074E872 /* offsetPipeline.cpp */,
+				6A3DBC981C3ED49A0074E872 /* offsetPipeline.h */,
 				6ABDF1101C3D5EBD00892E5F /* inputProcess.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
@@ -1049,6 +1054,7 @@
 				FD479044885EC6166AE5ACA1 /* NetworkingUtils.cpp in Sources */,
 				C47BA3977779AA555F5C0951 /* UdpSocket.cpp in Sources */,
 				1AF02613CD1B7D72FDD9E69B /* OscOutboundPacketStream.cpp in Sources */,
+				6A3DBC991C3ED49A0074E872 /* offsetPipeline.cpp in Sources */,
 				C85BCFEE18F4F9F5303B9AA4 /* OscPrintReceivedElements.cpp in Sources */,
 				88DE9F9E4749A2887104B780 /* OscReceivedElements.cpp in Sources */,
 				9DB174106AE031550CC16B76 /* OscTypes.cpp in Sources */,
