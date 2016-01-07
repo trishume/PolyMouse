@@ -50,6 +50,8 @@
 		6A3DBC921C3EB97F0074E872 /* libdl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBC911C3EB97F0074E872 /* libdl.tbd */; };
 		6A3DBC951C3EBC790074E872 /* offsetTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC931C3EBC790074E872 /* offsetTransformer.cpp */; };
 		6A3DBC991C3ED49A0074E872 /* offsetPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC971C3ED49A0074E872 /* offsetPipeline.cpp */; };
+		6A3DBC9E1C3EEC9F0074E872 /* diffTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC9A1C3EEC9F0074E872 /* diffTransformer.cpp */; };
+		6A3DBC9F1C3EEC9F0074E872 /* liberalMagicPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC9C1C3EEC9F0074E872 /* liberalMagicPipeline.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -273,6 +275,10 @@
 		6A3DBC941C3EBC790074E872 /* offsetTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offsetTransformer.h; sourceTree = "<group>"; };
 		6A3DBC971C3ED49A0074E872 /* offsetPipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = offsetPipeline.cpp; sourceTree = "<group>"; };
 		6A3DBC981C3ED49A0074E872 /* offsetPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = offsetPipeline.h; sourceTree = "<group>"; };
+		6A3DBC9A1C3EEC9F0074E872 /* diffTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = diffTransformer.cpp; sourceTree = "<group>"; };
+		6A3DBC9B1C3EEC9F0074E872 /* diffTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diffTransformer.h; sourceTree = "<group>"; };
+		6A3DBC9C1C3EEC9F0074E872 /* liberalMagicPipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = liberalMagicPipeline.cpp; sourceTree = "<group>"; };
+		6A3DBC9D1C3EEC9F0074E872 /* liberalMagicPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liberalMagicPipeline.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
@@ -907,6 +913,10 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A3DBC9A1C3EEC9F0074E872 /* diffTransformer.cpp */,
+				6A3DBC9B1C3EEC9F0074E872 /* diffTransformer.h */,
+				6A3DBC9C1C3EEC9F0074E872 /* liberalMagicPipeline.cpp */,
+				6A3DBC9D1C3EEC9F0074E872 /* liberalMagicPipeline.h */,
 				6A3DBC971C3ED49A0074E872 /* offsetPipeline.cpp */,
 				6A3DBC981C3ED49A0074E872 /* offsetPipeline.h */,
 				6ABDF1101C3D5EBD00892E5F /* inputProcess.h */,
@@ -1084,6 +1094,7 @@
 				C68311DDF0982C77B720EB04 /* curve_client.cpp in Sources */,
 				C86CC8E1554715008FE8E2F1 /* curve_server.cpp in Sources */,
 				E0B6ADECAFA2B3F33FCC49D2 /* dealer.cpp in Sources */,
+				6A3DBC9E1C3EEC9F0074E872 /* diffTransformer.cpp in Sources */,
 				B903EDF52F1E49C1B37BE0EC /* devpoll.cpp in Sources */,
 				26268ECDE726EF2A06A087ED /* dist.cpp in Sources */,
 				C7CFF688F683490A3A8E854D /* epoll.cpp in Sources */,
@@ -1150,6 +1161,7 @@
 				902B747E500E1CCAD7BC6288 /* tipc_address.cpp in Sources */,
 				1ED3D60A5985168C6EEF7C24 /* tipc_connecter.cpp in Sources */,
 				AA344E5B17D26EF78C42C10A /* tipc_listener.cpp in Sources */,
+				6A3DBC9F1C3EEC9F0074E872 /* liberalMagicPipeline.cpp in Sources */,
 				F93C280855BA01CCCE5A0729 /* trie.cpp in Sources */,
 				1962ACC14FD1A2FA7103CA19 /* v1_decoder.cpp in Sources */,
 				C41D8279D7FFD4E6FD46D181 /* v1_encoder.cpp in Sources */,

@@ -6,6 +6,7 @@
 #include "pupilGazeInput.h"
 #include "linuxtrackInput.h"
 #include "offsetPipeline.h"
+#include "liberalMagicPipeline.h"
 
 class ofApp : public ofBaseApp{
 
@@ -32,5 +33,5 @@ class ofApp : public ofBaseApp{
 
 		pupilGazeInput gazeInp;
 		linuxtrackInput ltrInp;
-		offsetPipeline pointer;
+		liberalMagicPipeline pointer;
 };
