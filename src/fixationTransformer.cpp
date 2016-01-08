@@ -13,11 +13,11 @@
 #include <algorithm>
 using namespace std;
 
-static const int kFixationBufferSize = 16;
+static const int kFixationBufferSize = 64;
 
 // these parameters are highly related
-static const float kDefaultMinFixationSeconds = 0.05;
-static const float kDefaultMaxVelocity = 200.0;
+static const float kDefaultMinFixationSeconds = 0.07;
+static const float kDefaultMaxVelocity = 150.0;
 
 fixationTransformer::fixationTransformer(inputProcess<ofVec2f> *inp, std::string name)
   : inp(inp), name(name),

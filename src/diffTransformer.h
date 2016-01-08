@@ -22,4 +22,5 @@ private:
   inputProcess<ofVec2f> *inp;
   std::string name;
   float scale;
+  float exponent;
 };

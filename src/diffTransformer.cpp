@@ -9,15 +9,20 @@
 #include "diffTransformer.h"
 #include "ofxRemoteUIServer.h"
 #include <iostream>
+#include <cmath>
 using namespace std;
 
+static const float kDefaultVelocityScale = 1000;
+static const float kDefaultVelocityExponent = 1.5;
+
 diffTransformer::diffTransformer(inputProcess<ofVec2f> *inp, std::string name)
-  : inp(inp), name(name), scale(500) {}
+  : inp(inp), name(name), scale(kDefaultVelocityScale), exponent(kDefaultVelocityExponent) {}
 
 void diffTransformer::setup() {
   inp->setup();
   RUI_NEW_GROUP(name);
-  RUI_SHARE_PARAM(scale, 0, 1000);
+  RUI_SHARE_PARAM(scale, 0, 5000);
+  RUI_SHARE_PARAM(exponent, 0, 5);
 }
 
 void diffTransformer::update() {
@@ -25,6 +30,7 @@ void diffTransformer::update() {
   inp->update();
   ofVec2f diff = inp->val - prevVal;
   float dt = ofGetLastFrameTime();
-  val = diff * dt * scale;
+  float magnitude = pow(diff.length(),exponent) * dt * scale;
+  val = diff.normalized() * magnitude;
   // cout << "diff: " << val << endl;
 }
