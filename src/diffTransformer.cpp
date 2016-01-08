@@ -26,5 +26,5 @@ void diffTransformer::update() {
   ofVec2f diff = inp->val - prevVal;
   float dt = ofGetLastFrameTime();
   val = diff * dt * scale;
-  cout << "diff: " << val << endl;
+  // cout << "diff: " << val << endl;
 }

@@ -46,7 +46,7 @@ bool pupilGazeInput::parsePacket(const string &s) {
     if(item == "realtime gaze on screen") {
       ofVec2f fraction = parsePoint(valueForItem);
       val = ofVec2f(fraction.x * ofGetScreenWidth(), (1-fraction.y) * ofGetScreenHeight());
-      cout << "gaze at " << valueForItem << ' ' << fraction << " = " << val << endl;
+      // cout << "gaze at " << valueForItem << ' ' << fraction << " = " << val << endl;
     }
   }
 

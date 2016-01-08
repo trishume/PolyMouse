@@ -52,6 +52,7 @@
 		6A3DBC991C3ED49A0074E872 /* offsetPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC971C3ED49A0074E872 /* offsetPipeline.cpp */; };
 		6A3DBC9E1C3EEC9F0074E872 /* diffTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC9A1C3EEC9F0074E872 /* diffTransformer.cpp */; };
 		6A3DBC9F1C3EEC9F0074E872 /* liberalMagicPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC9C1C3EEC9F0074E872 /* liberalMagicPipeline.cpp */; };
+		6A3DBCA21C4020BE0074E872 /* fixationTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCA01C4020BE0074E872 /* fixationTransformer.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -279,6 +280,8 @@
 		6A3DBC9B1C3EEC9F0074E872 /* diffTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diffTransformer.h; sourceTree = "<group>"; };
 		6A3DBC9C1C3EEC9F0074E872 /* liberalMagicPipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = liberalMagicPipeline.cpp; sourceTree = "<group>"; };
 		6A3DBC9D1C3EEC9F0074E872 /* liberalMagicPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liberalMagicPipeline.h; sourceTree = "<group>"; };
+		6A3DBCA01C4020BE0074E872 /* fixationTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fixationTransformer.cpp; sourceTree = "<group>"; };
+		6A3DBCA11C4020BE0074E872 /* fixationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fixationTransformer.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
@@ -913,6 +916,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A3DBCA01C4020BE0074E872 /* fixationTransformer.cpp */,
+				6A3DBCA11C4020BE0074E872 /* fixationTransformer.h */,
 				6A3DBC9A1C3EEC9F0074E872 /* diffTransformer.cpp */,
 				6A3DBC9B1C3EEC9F0074E872 /* diffTransformer.h */,
 				6A3DBC9C1C3EEC9F0074E872 /* liberalMagicPipeline.cpp */,
@@ -1145,6 +1150,7 @@
 				4AA19220C5F13915D94176C9 /* req.cpp in Sources */,
 				F6E031B4DDD638B325C1EA51 /* router.cpp in Sources */,
 				95771EA4967591B45D67EDB7 /* select.cpp in Sources */,
+				6A3DBCA21C4020BE0074E872 /* fixationTransformer.cpp in Sources */,
 				FE1C0D8462D70418CC14F93C /* session_base.cpp in Sources */,
 				C3FF22F0E3BB9FBB1E121565 /* signaler.cpp in Sources */,
 				D2DBB67CEDC84208461DF6B0 /* socket_base.cpp in Sources */,
