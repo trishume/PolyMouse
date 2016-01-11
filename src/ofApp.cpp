@@ -1,6 +1,7 @@
 #include "ofApp.h"
 
 #include "ofxRemoteUIServer.h"
+#include "macMouse.h"
 
 ofApp::ofApp() : pointer(&gazeInp, &ltrInp) {
 
@@ -10,7 +11,7 @@ ofApp::ofApp() : pointer(&gazeInp, &ltrInp) {
 void ofApp::setup(){
   ofSetFrameRate(60);
   ofEnableAlphaBlending();
-  // ofSetVerticalSync(true);
+//   ofSetVerticalSync(true);
   transparent.afterMainSetup(ofxTransparentWindow::SCREENSAVER);
   ofSetFullscreen(true);
 
@@ -22,6 +23,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer.update();
+//  moveMouseTo(pointer.val);
 }
 
 //--------------------------------------------------------------

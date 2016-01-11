@@ -53,6 +53,10 @@
 		6A3DBC9E1C3EEC9F0074E872 /* diffTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC9A1C3EEC9F0074E872 /* diffTransformer.cpp */; };
 		6A3DBC9F1C3EEC9F0074E872 /* liberalMagicPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC9C1C3EEC9F0074E872 /* liberalMagicPipeline.cpp */; };
 		6A3DBCA21C4020BE0074E872 /* fixationTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCA01C4020BE0074E872 /* fixationTransformer.cpp */; };
+		6A3DBCA51C4431AE0074E872 /* macMouse.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCA31C4431AE0074E872 /* macMouse.mm */; };
+		6A3DBCA71C4432AE0074E872 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBCA61C4432AE0074E872 /* ApplicationServices.framework */; };
+		6A3DBCA91C4432BF0074E872 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBCA81C4432BF0074E872 /* AppKit.framework */; };
+		6A3DBCAB1C4432C40074E872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBCAA1C4432C40074E872 /* Foundation.framework */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -282,6 +286,11 @@
 		6A3DBC9D1C3EEC9F0074E872 /* liberalMagicPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = liberalMagicPipeline.h; sourceTree = "<group>"; };
 		6A3DBCA01C4020BE0074E872 /* fixationTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fixationTransformer.cpp; sourceTree = "<group>"; };
 		6A3DBCA11C4020BE0074E872 /* fixationTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fixationTransformer.h; sourceTree = "<group>"; };
+		6A3DBCA31C4431AE0074E872 /* macMouse.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = macMouse.mm; sourceTree = "<group>"; };
+		6A3DBCA41C4431AE0074E872 /* macMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macMouse.h; sourceTree = "<group>"; };
+		6A3DBCA61C4432AE0074E872 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		6A3DBCA81C4432BF0074E872 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		6A3DBCAA1C4432C40074E872 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
@@ -454,6 +463,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A3DBCAB1C4432C40074E872 /* Foundation.framework in Frameworks */,
+				6A3DBCA91C4432BF0074E872 /* AppKit.framework in Frameworks */,
+				6A3DBCA71C4432AE0074E872 /* ApplicationServices.framework in Frameworks */,
 				6A3DBC921C3EB97F0074E872 /* libdl.tbd in Frameworks */,
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
 			);
@@ -901,6 +913,9 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				6A3DBCAA1C4432C40074E872 /* Foundation.framework */,
+				6A3DBCA81C4432BF0074E872 /* AppKit.framework */,
+				6A3DBCA61C4432AE0074E872 /* ApplicationServices.framework */,
 				6A3DBC911C3EB97F0074E872 /* libdl.tbd */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
@@ -934,6 +949,8 @@
 				6A3DBC8F1C3EAD480074E872 /* linuxtrackInput.h */,
 				6A3DBC931C3EBC790074E872 /* offsetTransformer.cpp */,
 				6A3DBC941C3EBC790074E872 /* offsetTransformer.h */,
+				6A3DBCA31C4431AE0074E872 /* macMouse.mm */,
+				6A3DBCA41C4431AE0074E872 /* macMouse.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -1132,6 +1149,7 @@
 				098329E00B9331841F66C0FF /* pgm_sender.cpp in Sources */,
 				D953A265396B56EF8399F52C /* pgm_socket.cpp in Sources */,
 				6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */,
+				6A3DBCA51C4431AE0074E872 /* macMouse.mm in Sources */,
 				60A85DCDC72998249AD3A962 /* plain_client.cpp in Sources */,
 				74B13A5D1D89F504436151DC /* plain_server.cpp in Sources */,
 				E6C75841C2C54F19AFF744A4 /* poll.cpp in Sources */,
