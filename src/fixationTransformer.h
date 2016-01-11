@@ -23,6 +23,8 @@ public:
   fixationTransformer(inputProcess<ofVec2f> *inp, std::string name);
   void setup();
   void update();
+
+  void draw();
 private:
   inputProcess<ofVec2f> *inp;
   std::string name;

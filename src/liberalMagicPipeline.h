@@ -25,4 +25,5 @@ private:
   diffTransformer headInp;
 
   float minJump;
+  ofVec2f lastJumpDestination;
 };

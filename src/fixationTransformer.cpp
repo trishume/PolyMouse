@@ -65,3 +65,15 @@ void fixationTransformer::update() {
     // cout << "Filtered out saccade." << endl;
   }
 }
+
+void fixationTransformer::draw() {
+  // int toShow = kFixationBufferSize;
+  int toShow = 1;
+  for(unsigned i = kFixationBufferSize-toShow; i < kFixationBufferSize; ++i) {
+    ofVec2f pastPoint = buffer[i];
+    ofSetColor(0, 255, 0, i*(180/kFixationBufferSize)+10);
+    ofDrawCircle(pastPoint.x, pastPoint.y, 4);
+  }
+  ofSetColor(255, 0, 0);
+  ofDrawCircle(val.x, val.y, 3);
+}
