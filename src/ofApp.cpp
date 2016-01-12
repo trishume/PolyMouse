@@ -12,7 +12,7 @@ void ofApp::setup(){
   ofSetFrameRate(60);
   ofEnableAlphaBlending();
 //   ofSetVerticalSync(true);
-  transparent.afterMainSetup(ofxTransparentWindow::SCREENSAVER);
+   transparent.afterMainSetup(ofxTransparentWindow::SCREENSAVER);
   ofSetFullscreen(true);
 
   RUI_SETUP();
@@ -23,7 +23,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer.update();
-//  moveMouseTo(pointer.val);
+  moveMouseTo(pointer.val);
 }
 
 //--------------------------------------------------------------
@@ -32,12 +32,12 @@ void ofApp::draw(){
   pointer.draw();
   ofSetColor(255, 0, 255);
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
-  ofDrawCircle(pointer.val.x, pointer.val.y, 5);
+  ofDrawCircle(pointer.val.x-ofGetWindowPositionX(), pointer.val.y-ofGetWindowPositionY(), 5);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+  if(key == 'f') ofToggleFullscreen();
 }
 
 //--------------------------------------------------------------
