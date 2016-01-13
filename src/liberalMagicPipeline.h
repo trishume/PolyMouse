@@ -25,5 +25,11 @@ private:
   diffTransformer headInp;
 
   float minJump;
+  float speedExpandFactor;
+  float headSmoothingFactor;
+
   ofVec2f lastJumpDestination;
+  float smoothedHeadVel;
+
+  float calcJumpRadius() const;
 };

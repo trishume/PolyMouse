@@ -18,6 +18,8 @@ public:
   diffTransformer(inputProcess<ofVec2f> *inp, std::string name);
   void setup();
   void update();
+
+  ofVec2f rawVel;
 private:
   inputProcess<ofVec2f> *inp;
   std::string name;

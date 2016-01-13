@@ -12,7 +12,7 @@
 #include <cmath>
 using namespace std;
 
-static const float kDefaultVelocityScale = 5000;
+static const float kDefaultVelocityScale = 6000;
 static const float kDefaultVelocityExponent = 1.5;
 
 diffTransformer::diffTransformer(inputProcess<ofVec2f> *inp, std::string name)
@@ -32,5 +32,6 @@ void diffTransformer::update() {
   float dt = ofGetLastFrameTime();
   float magnitude = pow(diff.length(),exponent) * dt * scale;
   val = diff.getNormalized() * magnitude;
+  rawVel = diff * dt;
   // cout << "diff: " << val << endl;
 }

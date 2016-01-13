@@ -34,4 +34,6 @@ class ofApp : public ofBaseApp{
 		pupilGazeInput gazeInp;
 		linuxtrackInput ltrInp;
 		liberalMagicPipeline pointer;
+
+		bool mousing;
 };

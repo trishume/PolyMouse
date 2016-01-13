@@ -18,12 +18,13 @@ void ofApp::setup(){
   RUI_SETUP();
 
   pointer.setup();
+  mousing = true;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer.update();
-  moveMouseTo(pointer.val);
+  if(mousing) moveMouseTo(pointer.val);
 }
 
 //--------------------------------------------------------------
@@ -42,6 +43,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
   if(key == 'f') ofToggleFullscreen();
+  if(key == 'm') mousing = !mousing;
 }
 
 //--------------------------------------------------------------
