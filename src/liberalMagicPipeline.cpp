@@ -11,6 +11,7 @@
 #include "ofGraphics.h"
 
 static const int kLiberalMagicMinimumJump = 150;
+static const float kSmallJumpFactor = 0.75;
 
 liberalMagicPipeline::liberalMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
   : rawGaze(gaze), headInp(head, "head velocity"),
@@ -29,8 +30,9 @@ void liberalMagicPipeline::update() {
 
   // teleport to gaze if gaze is too far away
   // Note: cursor must also be away from the last teleport location
+  float smallJump = minJump*0.75;
   if(val.squareDistance(gazeInp.val) > minJump*minJump &&
-     lastJumpDestination.squareDistance(gazeInp.val) > minJump*minJump) {
+     lastJumpDestination.squareDistance(gazeInp.val) > (smallJump*smallJump)) {
     val = gazeInp.val;
     lastJumpDestination = gazeInp.val;
   }
@@ -40,4 +42,10 @@ void liberalMagicPipeline::update() {
 
 void liberalMagicPipeline::draw() {
   gazeInp.draw();
+
+  ofSetColor(255,0,255);
+  ofNoFill();
+  ofDrawCircle(lastJumpDestination.x, lastJumpDestination.y, minJump*kSmallJumpFactor);
+  ofDrawCircle(val.x, val.y, minJump);
+  ofFill();
 }

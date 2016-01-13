@@ -29,10 +29,14 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
   transparent.update();
-  pointer.draw();
   ofSetColor(255, 0, 255);
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
-  ofDrawCircle(pointer.val.x-ofGetWindowPositionX(), pointer.val.y-ofGetWindowPositionY(), 5);
+
+  ofPushMatrix();
+  ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
+  pointer.draw();
+  ofDrawCircle(pointer.val.x, pointer.val.y, 5);
+  ofPopMatrix();
 }
 
 //--------------------------------------------------------------
