@@ -36,7 +36,7 @@ void ofApp::draw(){
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
   pointer.draw();
-  ofDrawCircle(pointer.val.x, pointer.val.y, 5);
+  // ofDrawCircle(pointer.val.x, pointer.val.y, 5);
   ofPopMatrix();
 }
 

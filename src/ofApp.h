@@ -8,6 +8,7 @@
 #include "offsetPipeline.h"
 #include "liberalMagicPipeline.h"
 #include "animatedMagicPipeline.h"
+#include "rakeCursorPipeline.h"
 
 class ofApp : public ofBaseApp{
 
@@ -34,7 +35,7 @@ class ofApp : public ofBaseApp{
 
 		pupilGazeInput gazeInp;
 		linuxtrackInput ltrInp;
-		animatedMagicPipeline pointer;
+		rakeCursorPipeline pointer;
 
 		bool mousing;
 };
