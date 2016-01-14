@@ -16,7 +16,7 @@ using namespace std;
 static const int kFixationBufferSize = 512;
 
 // these parameters are highly related
-static const float kDefaultMinFixationSeconds = 0.15;
+static const float kDefaultMinFixationSeconds = 0.10;
 static const float kDefaultMaxVelocity = 150.0;
 
 fixationTransformer::fixationTransformer(inputProcess<ofVec2f> *inp, std::string name)
@@ -71,7 +71,7 @@ void fixationTransformer::draw() {
   int toShow = 1;
   for(unsigned i = kFixationBufferSize-toShow; i < kFixationBufferSize; ++i) {
     ofVec2f pastPoint = buffer[i];
-    ofSetColor(0, 255, 0, i*(180/kFixationBufferSize)+10);
+    ofSetColor(0, 255, 0, i*(180/toShow)+10);
     ofDrawCircle(pastPoint.x, pastPoint.y, 4);
   }
   ofSetColor(255, 0, 0);

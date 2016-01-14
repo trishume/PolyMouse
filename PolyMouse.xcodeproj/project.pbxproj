@@ -57,6 +57,7 @@
 		6A3DBCA71C4432AE0074E872 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBCA61C4432AE0074E872 /* ApplicationServices.framework */; };
 		6A3DBCA91C4432BF0074E872 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBCA81C4432BF0074E872 /* AppKit.framework */; };
 		6A3DBCAB1C4432C40074E872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBCAA1C4432C40074E872 /* Foundation.framework */; };
+		6A3DBCAE1C4801890074E872 /* animatedMagicPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCAC1C4801890074E872 /* animatedMagicPipeline.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -291,6 +292,8 @@
 		6A3DBCA61C4432AE0074E872 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		6A3DBCA81C4432BF0074E872 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		6A3DBCAA1C4432C40074E872 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6A3DBCAC1C4801890074E872 /* animatedMagicPipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = animatedMagicPipeline.cpp; sourceTree = "<group>"; };
+		6A3DBCAD1C4801890074E872 /* animatedMagicPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animatedMagicPipeline.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
@@ -931,6 +934,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A3DBCAC1C4801890074E872 /* animatedMagicPipeline.cpp */,
+				6A3DBCAD1C4801890074E872 /* animatedMagicPipeline.h */,
 				6A3DBCA01C4020BE0074E872 /* fixationTransformer.cpp */,
 				6A3DBCA11C4020BE0074E872 /* fixationTransformer.h */,
 				6A3DBC9A1C3EEC9F0074E872 /* diffTransformer.cpp */,
@@ -1186,6 +1191,7 @@
 				1ED3D60A5985168C6EEF7C24 /* tipc_connecter.cpp in Sources */,
 				AA344E5B17D26EF78C42C10A /* tipc_listener.cpp in Sources */,
 				6A3DBC9F1C3EEC9F0074E872 /* liberalMagicPipeline.cpp in Sources */,
+				6A3DBCAE1C4801890074E872 /* animatedMagicPipeline.cpp in Sources */,
 				F93C280855BA01CCCE5A0729 /* trie.cpp in Sources */,
 				1962ACC14FD1A2FA7103CA19 /* v1_decoder.cpp in Sources */,
 				C41D8279D7FFD4E6FD46D181 /* v1_encoder.cpp in Sources */,
