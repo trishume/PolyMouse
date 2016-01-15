@@ -20,7 +20,7 @@ public:
   void update();
   void draw(); // for debugging
 private:
-  fixationTransformer gazeInp;
+  inputProcess<ofVec2f> *gazeInp;
   diffTransformer headInp;
 
   float cursorSpacing;

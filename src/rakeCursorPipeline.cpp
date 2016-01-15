@@ -39,17 +39,17 @@ static void allCursors(ofVec2f offset, float cursorSpacing, Func f) {
 }
 
 rakeCursorPipeline::rakeCursorPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
-  : headInp(head, "head velocity"), gazeInp(gaze, "fixation detection"), cursorSpacing(kCursorSpacing) {}
+  : headInp(head, "head velocity"), gazeInp(gaze), cursorSpacing(kCursorSpacing) {}
 
 void rakeCursorPipeline::setup() {
-  gazeInp.setup();
+  gazeInp->setup();
   headInp.setup();
   RUI_NEW_GROUP("Rake Cursors");
   RUI_SHARE_PARAM(cursorSpacing, 0, 800);
 }
 
 void rakeCursorPipeline::update() {
-  gazeInp.update();
+  gazeInp->update();
   headInp.update();
 
 
@@ -61,7 +61,7 @@ void rakeCursorPipeline::update() {
   float closestDistSquared = 100000;
   ofVec2f closestCursor = offset;
   allCursors(offset, cursorSpacing, [&](ofVec2f p) {
-    float distSquared = p.squareDistance(this->gazeInp.val);
+    float distSquared = p.squareDistance(this->gazeInp->val);
     if(distSquared <= closestDistSquared) {
       closestDistSquared = distSquared;
       closestCursor = p;
@@ -72,8 +72,6 @@ void rakeCursorPipeline::update() {
 }
 
 void rakeCursorPipeline::draw() {
-  // gazeInp.draw();
-
   ofSetColor(255,0,255);
   allCursors(offset, cursorSpacing, [](ofVec2f p) { ofDrawCircle(p.x,p.y,3); });
 }

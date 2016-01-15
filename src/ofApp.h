@@ -35,7 +35,7 @@ class ofApp : public ofBaseApp{
 
 		pupilGazeInput gazeInp;
 		linuxtrackInput ltrInp;
-		rakeCursorPipeline pointer;
+		animatedMagicPipeline pointer;
 
 		bool mousing;
 };

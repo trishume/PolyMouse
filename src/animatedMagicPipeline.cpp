@@ -14,11 +14,11 @@
 static const int kAnimatedMagicMinimumJump = 100;
 static const float kSpeedExpandFactor = 10000.0;
 static const float kSmallJumpFactor = 0.75;
-static const float kHeadSmoothingFactor = 0.2;
+static const float kHeadSmoothingFactor = 0.1;
 // TODO should be radians per second but I don't think it is
 static const float kThrowThreshSpeed = 0.002;
 // pixels per second
-static const float kThrowSpeed = 2000;
+static const float kThrowSpeed = 10000;
 
 animatedMagicPipeline::animatedMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
   : rawGaze(gaze), headInp(head, "head velocity"), speedExpandFactor(kSpeedExpandFactor),
@@ -34,7 +34,7 @@ void animatedMagicPipeline::setup() {
   RUI_SHARE_PARAM(speedExpandFactor, 0, 50000);
   RUI_SHARE_PARAM(headSmoothingFactor, 0, 1);
   RUI_SHARE_PARAM(throwThreshSpeed, 0, 0.01);
-  RUI_SHARE_PARAM(throwSpeed, 0, 10000);
+  RUI_SHARE_PARAM(throwSpeed, 0, 50000);
 }
 
 void animatedMagicPipeline::update() {
@@ -47,8 +47,10 @@ void animatedMagicPipeline::update() {
                     headInp.rawVel.length()*headSmoothingFactor;
   std::cout << smoothedHeadVel << std::endl;
   if(lookingFarAway() && smoothedHeadVel > throwThreshSpeed) {
-    val = gazeInp.val;
-    lastJumpDestination = gazeInp.val;
+    double dt = ofGetLastFrameTime();
+    ofVec2f throwVec = (gazeInp.val - val).getNormalized() * (throwSpeed*dt);
+    val += throwVec;
+    lastJumpDestination = val;
   }
 
   val += headInp.val; // use relative motion from head
