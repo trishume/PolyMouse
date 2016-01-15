@@ -34,6 +34,8 @@ private:
   ofVec2f lastJumpDestination;
   float smoothedHeadVel;
 
+  bool throwing;
+
   float calcJumpRadius() const;
   bool lookingFarAway() const;
 };

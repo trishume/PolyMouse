@@ -16,9 +16,9 @@ static const float kSpeedExpandFactor = 10000.0;
 static const float kSmallJumpFactor = 0.75;
 static const float kHeadSmoothingFactor = 0.1;
 // TODO should be radians per second but I don't think it is
-static const float kThrowThreshSpeed = 0.002;
+static const float kThrowThreshSpeed = 0.001;
 // pixels per second
-static const float kThrowSpeed = 10000;
+static const float kThrowSpeed = 8000;
 
 animatedMagicPipeline::animatedMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
   : rawGaze(gaze), headInp(head, "head velocity"), speedExpandFactor(kSpeedExpandFactor),
@@ -45,12 +45,22 @@ void animatedMagicPipeline::update() {
   // Note: cursor must also be away from the last teleport location
   smoothedHeadVel = smoothedHeadVel*(1-headSmoothingFactor) +
                     headInp.rawVel.length()*headSmoothingFactor;
-  std::cout << smoothedHeadVel << std::endl;
-  if(lookingFarAway() && smoothedHeadVel > throwThreshSpeed) {
+  // std::cout << smoothedHeadVel << std::endl;
+  if(lookingFarAway() && smoothedHeadVel > throwThreshSpeed && !throwing) {
+    throwing = true;
+  }
+
+  if(throwing) {
     double dt = ofGetLastFrameTime();
-    ofVec2f throwVec = (gazeInp.val - val).getNormalized() * (throwSpeed*dt);
-    val += throwVec;
-    lastJumpDestination = val;
+    double throwDist = (throwSpeed*dt);
+    ofVec2f dirn = (gazeInp.val - val).getNormalized();
+    if(val.distance(gazeInp.val)-minJump > throwDist) {
+      val += dirn*throwDist;
+    } else {
+      lastJumpDestination = gazeInp.val;
+      val = gazeInp.val + dirn*(-minJump);
+      throwing = false;
+    }
   }
 
   val += headInp.val; // use relative motion from head
