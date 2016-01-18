@@ -59,6 +59,7 @@
 		6A3DBCAB1C4432C40074E872 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBCAA1C4432C40074E872 /* Foundation.framework */; };
 		6A3DBCAE1C4801890074E872 /* animatedMagicPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCAC1C4801890074E872 /* animatedMagicPipeline.cpp */; };
 		6A3DBCB11C4822BF0074E872 /* rakeCursorPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCAF1C4822BF0074E872 /* rakeCursorPipeline.cpp */; };
+		6A3DBCB41C4D88010074E872 /* dlcTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -297,6 +298,8 @@
 		6A3DBCAD1C4801890074E872 /* animatedMagicPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = animatedMagicPipeline.h; sourceTree = "<group>"; };
 		6A3DBCAF1C4822BF0074E872 /* rakeCursorPipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rakeCursorPipeline.cpp; sourceTree = "<group>"; };
 		6A3DBCB01C4822BF0074E872 /* rakeCursorPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rakeCursorPipeline.h; sourceTree = "<group>"; };
+		6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dlcTransformer.cpp; sourceTree = "<group>"; };
+		6A3DBCB31C4D88010074E872 /* dlcTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dlcTransformer.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
@@ -937,6 +940,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */,
+				6A3DBCB31C4D88010074E872 /* dlcTransformer.h */,
 				6A3DBCAF1C4822BF0074E872 /* rakeCursorPipeline.cpp */,
 				6A3DBCB01C4822BF0074E872 /* rakeCursorPipeline.h */,
 				6A3DBCAC1C4801890074E872 /* animatedMagicPipeline.cpp */,
@@ -1105,6 +1110,7 @@
 				192E0AA6E6ACCFF0B3ED1D93 /* ofxRemoteUIClient.cpp in Sources */,
 				70E4DA9B6955D4C6CE46E079 /* ofxRemoteUINeigbors.cpp in Sources */,
 				796B9896486F8C75C539E3AD /* ofxRemoteUIofParamaterSync.cpp in Sources */,
+				6A3DBCB41C4D88010074E872 /* dlcTransformer.cpp in Sources */,
 				CDA374B404DC85E233A1D736 /* ofxRemoteUIServer.cpp in Sources */,
 				E7C7256FD8153AA30883A42F /* uriencode.cpp in Sources */,
 				6E7B1BECAEE71AA06C7AAF7A /* ofxTransparentWindow.cpp in Sources */,

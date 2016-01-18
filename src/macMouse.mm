@@ -8,6 +8,8 @@
 
 #include "macMouse.h"
 
+#include "ofAppRunner.h"
+
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 
@@ -27,4 +29,32 @@ void moveMouseTo(ofVec2f pt) {
   ev_ref = CGEventCreateMouseEvent(NULL, event, CGPointMake(pt.x,pt.y), kCGMouseButtonLeft);
   CGEventPost(kCGHIDEventTap, ev_ref);
   CFRelease(ev_ref);
+}
+
+mouseMonitor addMouseMonitor(std::function<void(ofVec2f)> func) {
+  id globalMon = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask
+                                         handler:^(NSEvent *event) {
+      NSPoint pt = [NSEvent mouseLocation];
+      ofVec2f pos(pt.x,ofGetScreenHeight() - pt.y);
+      func(pos);
+  }];
+  id localMon = [NSEvent addLocalMonitorForEventsMatchingMask:NSLeftMouseDownMask
+                                         handler:^(NSEvent *event) {
+      NSPoint pt = [NSEvent mouseLocation];
+      ofVec2f pos(pt.x,ofGetScreenHeight() - pt.y);
+      func(pos);
+      return event;
+  }];
+
+  mouseMonitor mon;
+  mon.globalMonitor = (void*)(globalMon);
+  mon.localMonitor = (void*)(localMon);
+  return mon;
+}
+
+void stopMouseMonitor(mouseMonitor mon) {
+  id globalMon = (id)(mon.globalMonitor);
+  if(globalMon) [NSEvent removeMonitor: globalMon];
+  id localMon = (id)(mon.localMonitor);
+  if(localMon) [NSEvent removeMonitor: localMon];
 }

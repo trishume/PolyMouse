@@ -3,7 +3,7 @@
 #include "ofxRemoteUIServer.h"
 #include "macMouse.h"
 
-ofApp::ofApp() : pointer(&gazeInp, &ltrInp) {
+ofApp::ofApp() : gazeInp(&rawGazeInp), pointer(&gazeInp, &ltrInp) {
 
 }
 
@@ -35,6 +35,7 @@ void ofApp::draw(){
 
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
+  gazeInp.draw();
   pointer.draw();
   // ofDrawCircle(pointer.val.x, pointer.val.y, 5);
   ofPopMatrix();

@@ -5,6 +5,7 @@
 
 #include "pupilGazeInput.h"
 #include "linuxtrackInput.h"
+#include "dlcTransformer.h"
 #include "offsetPipeline.h"
 #include "liberalMagicPipeline.h"
 #include "animatedMagicPipeline.h"
@@ -33,7 +34,8 @@ class ofApp : public ofBaseApp{
 
 		ofxTransparentWindow transparent;
 
-		pupilGazeInput gazeInp;
+		pupilGazeInput rawGazeInp;
+		dlcTransformer gazeInp;
 		linuxtrackInput ltrInp;
 		animatedMagicPipeline pointer;
 
