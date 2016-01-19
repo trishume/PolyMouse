@@ -21,8 +21,8 @@ static const float kThrowThreshSpeed = 0.001;
 static const float kThrowSpeed = 8000;
 
 animatedMagicPipeline::animatedMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
-  : rawGaze(gaze), headInp(head, "head velocity"), speedExpandFactor(kSpeedExpandFactor),
-  gazeInp(gaze, "fixation detection"), minJump(kAnimatedMagicMinimumJump),
+  : rawGaze(gaze), headInp(head, "animated"), speedExpandFactor(kSpeedExpandFactor),
+  gazeInp(gaze, "animated"), minJump(kAnimatedMagicMinimumJump),
   smoothedHeadVel(0.0), headSmoothingFactor(kHeadSmoothingFactor),
   throwThreshSpeed(kThrowThreshSpeed), throwSpeed(kThrowSpeed) {}
 

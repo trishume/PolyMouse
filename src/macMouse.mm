@@ -32,6 +32,7 @@ void moveMouseTo(ofVec2f pt) {
 }
 
 mouseMonitor addMouseMonitor(std::function<void(ofVec2f)> func) {
+  // TODO: these monitors might not get released, not sure ARC can handle the (void*) casts
   id globalMon = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask
                                          handler:^(NSEvent *event) {
       NSPoint pt = [NSEvent mouseLocation];

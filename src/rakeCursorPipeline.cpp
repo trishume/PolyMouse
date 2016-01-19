@@ -39,7 +39,7 @@ static void allCursors(ofVec2f offset, float cursorSpacing, Func f) {
 }
 
 rakeCursorPipeline::rakeCursorPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
-  : headInp(head, "head velocity"), gazeInp(gaze), cursorSpacing(kCursorSpacing) {}
+  : headInp(head, "rake"), gazeInp(gaze), cursorSpacing(kCursorSpacing) {}
 
 void rakeCursorPipeline::setup() {
   gazeInp->setup();

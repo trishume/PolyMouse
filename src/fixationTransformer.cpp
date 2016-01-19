@@ -29,10 +29,9 @@ fixationTransformer::fixationTransformer(inputProcess<ofVec2f> *inp, std::string
 }
 
 void fixationTransformer::setup() {
-  inp->setup();
-  RUI_NEW_GROUP(name);
-  RUI_SHARE_PARAM(minFixationSeconds, 0, 1.0);
-  RUI_SHARE_PARAM(maxVelocity, 0, 2000.0);
+  RUI_NEW_GROUP(name+" fixation transformer");
+  RUI_SHARE_PARAM_WCN(name+" minFixationSeconds",minFixationSeconds, 0, 1.0);
+  RUI_SHARE_PARAM_WCN(name+" maxVelocity",maxVelocity, 0, 2000.0);
 }
 
 void fixationTransformer::update() {

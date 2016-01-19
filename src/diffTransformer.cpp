@@ -19,10 +19,9 @@ diffTransformer::diffTransformer(inputProcess<ofVec2f> *inp, std::string name)
   : inp(inp), name(name), scale(kDefaultVelocityScale), exponent(kDefaultVelocityExponent) {}
 
 void diffTransformer::setup() {
-  inp->setup();
-  RUI_NEW_GROUP(name);
-  RUI_SHARE_PARAM(scale, 0, 10000);
-  RUI_SHARE_PARAM(exponent, 0, 5);
+  RUI_NEW_GROUP(name+" head velocity");
+  RUI_SHARE_PARAM_WCN(name+" scale",scale, 0, 10000);
+  RUI_SHARE_PARAM_WCN(name+" exponent",exponent, 0, 5);
 }
 
 void diffTransformer::update() {

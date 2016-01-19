@@ -37,7 +37,11 @@ class ofApp : public ofBaseApp{
 		pupilGazeInput rawGazeInp;
 		dlcTransformer gazeInp;
 		linuxtrackInput ltrInp;
-		animatedMagicPipeline pointer;
+
+		animatedMagicPipeline animatedPipeline;
+		rakeCursorPipeline rakePipeline;
+		liberalMagicPipeline liberalPipeline;
+		inputProcess<ofVec2f> *pointer;
 
 		bool mousing;
 };

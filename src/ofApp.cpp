@@ -3,41 +3,58 @@
 #include "ofxRemoteUIServer.h"
 #include "macMouse.h"
 
-ofApp::ofApp() : gazeInp(&rawGazeInp), pointer(&gazeInp, &ltrInp) {
+#include <iostream>
+using namespace std;
 
-}
+static const bool kOverlayUI = true;
+
+ofApp::ofApp() : gazeInp(&rawGazeInp),
+  animatedPipeline(&gazeInp, &ltrInp),
+  rakePipeline(&gazeInp, &ltrInp),
+  liberalPipeline(&gazeInp, &ltrInp),
+  pointer(&animatedPipeline) { }
 
 //--------------------------------------------------------------
 void ofApp::setup(){
   ofSetFrameRate(60);
   ofEnableAlphaBlending();
 //   ofSetVerticalSync(true);
-   transparent.afterMainSetup(ofxTransparentWindow::SCREENSAVER);
-  ofSetFullscreen(true);
+  if(kOverlayUI) {
+    transparent.afterMainSetup(ofxTransparentWindow::SCREENSAVER);
+    ofSetFullscreen(true);
+  }
 
   RUI_SETUP();
 
-  pointer.setup();
+
+  rawGazeInp.setup();
+  gazeInp.setup();
+  ltrInp.setup();
+
+  animatedPipeline.setup();
+  rakePipeline.setup();
+  liberalPipeline.setup();
+
   mousing = true;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-  pointer.update();
-  if(mousing) moveMouseTo(pointer.val);
+  pointer->update();
+  if(mousing) moveMouseTo(pointer->val);
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-  transparent.update();
+  if(kOverlayUI) transparent.update();
   ofSetColor(255, 0, 255);
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
 
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
-  gazeInp.draw();
-  pointer.draw();
-  // ofDrawCircle(pointer.val.x, pointer.val.y, 5);
+  if(pointer != &rakePipeline && kOverlayUI) gazeInp.draw();
+  if(kOverlayUI) pointer->draw();
+  if(!mousing) ofDrawCircle(pointer->val.x, pointer->val.y, 2);
   ofPopMatrix();
 }
 
@@ -45,6 +62,19 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
   if(key == 'f') ofToggleFullscreen();
   if(key == 'm') mousing = !mousing;
+
+  if(key == 'r') {
+    cout << "Rake cursor pipeline activated" << endl;
+    pointer = &rakePipeline;
+  }
+  if(key == 'a') {
+    cout << "Animated MAGIC pipeline activated" << endl;
+    pointer = &animatedPipeline;
+  }
+  if(key == 'l') {
+    cout << "Liberal MAGIC pipeline activated" << endl;
+    pointer = &liberalPipeline;
+  }
 }
 
 //--------------------------------------------------------------

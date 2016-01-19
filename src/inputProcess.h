@@ -5,5 +5,6 @@ public:
   A val;
   virtual void setup() = 0;
   virtual void update() = 0;
+  virtual void draw() {};
   virtual ~inputProcess() {};
 };

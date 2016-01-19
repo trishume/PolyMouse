@@ -43,8 +43,6 @@ dlcTransformer::~dlcTransformer() {
 }
 
 void dlcTransformer::setup() {
-  inp->setup();
-
   mon = addMouseMonitor([this](ofVec2f pt) {this->newPoint(pt);});
   cout << "Initialized DLC transformer" << endl;
 }
@@ -77,8 +75,7 @@ void dlcTransformer::update() {
       weightedOffset += offsets[x+y*kCellsX]*weight;
     }
   }
-  cout << "Total distance: " << totalDistance <<
-    "Weighted offset: " << weightedOffset << endl;
+  // cout << "Total distance: " << totalDistance << "Weighted offset: " << weightedOffset << endl;
 
   val = inp->val + weightedOffset;
 }
@@ -110,6 +107,5 @@ void dlcTransformer::newPoint(ofVec2f pt) {
     initialized[x + y*kCellsX] = true;
   }
 
-  cout << "Got new point at " << pt << " while gaze at " << inp->val <<
-    " yielding offset " << offset << endl;
+  // cout << "Got new point at " << pt << " while gaze at " << inp->val << " yielding offset " << offset << endl;
 }

@@ -16,17 +16,17 @@ static const float kSmallJumpFactor = 0.75;
 static const float kHeadSmoothingFactor = 0.05;
 
 liberalMagicPipeline::liberalMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
-  : rawGaze(gaze), headInp(head, "head velocity"), speedExpandFactor(kSpeedExpandFactor),
-  gazeInp(gaze, "fixation detection"), minJump(kLiberalMagicMinimumJump),
+  : rawGaze(gaze), headInp(head, "liberal"), speedExpandFactor(kSpeedExpandFactor),
+  gazeInp(gaze, "liberal"), minJump(kLiberalMagicMinimumJump),
   smoothedHeadVel(0.0), headSmoothingFactor(kHeadSmoothingFactor) {}
 
 void liberalMagicPipeline::setup() {
   gazeInp.setup();
   headInp.setup();
   RUI_NEW_GROUP("Liberal MAGIC");
-  RUI_SHARE_PARAM(minJump, 0, 800);
-  RUI_SHARE_PARAM(speedExpandFactor, 0, 50000);
-  RUI_SHARE_PARAM(headSmoothingFactor, 0, 1);
+  RUI_SHARE_PARAM_WCN("liberal minJump",minJump, 0, 800);
+  RUI_SHARE_PARAM_WCN("liberal speedExpandFactor",speedExpandFactor, 0, 50000);
+  RUI_SHARE_PARAM_WCN("liberal headSmoothingFactor",headSmoothingFactor, 0, 1);
 }
 
 void liberalMagicPipeline::update() {
