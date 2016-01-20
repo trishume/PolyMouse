@@ -9,7 +9,9 @@
 #include "animatedMagicPipeline.h"
 #include "ofxRemoteUIServer.h"
 #include "ofGraphics.h"
+#include "ofAppRunner.h"
 #include <iostream>
+#include <algorithm>
 
 static const int kAnimatedMagicMinimumJump = 100;
 static const float kSpeedExpandFactor = 10000.0;
@@ -19,6 +21,13 @@ static const float kHeadSmoothingFactor = 0.1;
 static const float kThrowThreshSpeed = 0.001;
 // pixels per second
 static const float kThrowSpeed = 8000;
+
+static ofVec2f confineToScreen(ofVec2f pt) {
+  ofVec2f size = ofGetWindowPtr()->getScreenSize();
+  pt.x = std::max(0.0f, std::min(size.x, pt.x));
+  pt.y = std::max(0.0f, std::min(size.y, pt.y));
+  return pt;
+}
 
 animatedMagicPipeline::animatedMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
   : rawGaze(gaze), headInp(head, "animated"), speedExpandFactor(kSpeedExpandFactor),
@@ -63,7 +72,8 @@ void animatedMagicPipeline::update() {
     }
   }
 
-  val += headInp.val; // use relative motion from head
+  // use relative motion from head
+  val = confineToScreen(val+headInp.val);
 }
 
 void animatedMagicPipeline::draw() {
