@@ -13,20 +13,24 @@
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 
+static const int kLeftButtonMask = 1;
+static const int kRightButtonMask = 2;
+
 void moveMouseTo(ofVec2f pt) {
   CGEventType event;
   CGEventRef ev_ref;
 
   int pressed = [NSEvent pressedMouseButtons];
-  if(pressed & kCGMouseButtonLeft){
+  if(pressed & kLeftButtonMask){
     event = kCGEventLeftMouseDragged;
-  } else if(pressed & kCGMouseButtonRight){
+  } else if(pressed & kRightButtonMask){
     event = kCGEventRightMouseDragged;
   } else {
     event = kCGEventMouseMoved;
   }
 
-  ev_ref = CGEventCreateMouseEvent(NULL, event, CGPointMake(pt.x,pt.y), kCGMouseButtonLeft);
+  CGPoint newPoint = CGPointMake(pt.x,pt.y);
+  ev_ref = CGEventCreateMouseEvent(NULL, event, newPoint, kCGMouseButtonLeft);
   CGEventPost(kCGHIDEventTap, ev_ref);
   CFRelease(ev_ref);
 }
