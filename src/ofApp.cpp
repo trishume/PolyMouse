@@ -6,13 +6,13 @@
 #include <iostream>
 using namespace std;
 
-static const bool kOverlayUI = true;
+static const bool kOverlayUI = false;
 
 ofApp::ofApp() : gazeInp(&rawGazeInp),
   animatedPipeline(&gazeInp, &ltrInp),
   rakePipeline(&gazeInp, &ltrInp),
   liberalPipeline(&gazeInp, &ltrInp),
-  pointer(&animatedPipeline) { }
+  pointer(&animatedPipeline), detector() { }
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -35,12 +35,15 @@ void ofApp::setup(){
   rakePipeline.setup();
   liberalPipeline.setup();
 
-  mousing = true;
+  detector.setup();
+
+  mousing = false;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer->update();
+  detector.update();
   if(mousing) moveMouseTo(pointer->val);
 }
 
@@ -49,6 +52,8 @@ void ofApp::draw(){
   if(kOverlayUI) transparent.update();
   ofSetColor(255, 0, 255);
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
+
+  detector.draw();
 
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());

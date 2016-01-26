@@ -60,6 +60,11 @@
 		6A3DBCAE1C4801890074E872 /* animatedMagicPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCAC1C4801890074E872 /* animatedMagicPipeline.cpp */; };
 		6A3DBCB11C4822BF0074E872 /* rakeCursorPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCAF1C4822BF0074E872 /* rakeCursorPipeline.cpp */; };
 		6A3DBCB41C4D88010074E872 /* dlcTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */; };
+		6A9FF38C1C581D6D00E19519 /* ofxFFTBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3831C581D6D00E19519 /* ofxFFTBase.cpp */; };
+		6A9FF38D1C581D6D00E19519 /* ofxFFTFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3851C581D6D00E19519 /* ofxFFTFile.cpp */; };
+		6A9FF38E1C581D6D00E19519 /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3871C581D6D00E19519 /* ofxFFTLive.cpp */; };
+		6A9FF38F1C581D6D00E19519 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF38A1C581D6D00E19519 /* fft.cpp */; };
+		6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3901C581FC100E19519 /* soundDetector.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -301,6 +306,16 @@
 		6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dlcTransformer.cpp; sourceTree = "<group>"; };
 		6A3DBCB31C4D88010074E872 /* dlcTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dlcTransformer.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
+		6A9FF3831C581D6D00E19519 /* ofxFFTBase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTBase.cpp; sourceTree = "<group>"; };
+		6A9FF3841C581D6D00E19519 /* ofxFFTBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFFTBase.h; sourceTree = "<group>"; };
+		6A9FF3851C581D6D00E19519 /* ofxFFTFile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTFile.cpp; sourceTree = "<group>"; };
+		6A9FF3861C581D6D00E19519 /* ofxFFTFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFFTFile.h; sourceTree = "<group>"; };
+		6A9FF3871C581D6D00E19519 /* ofxFFTLive.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFFTLive.cpp; sourceTree = "<group>"; };
+		6A9FF3881C581D6D00E19519 /* ofxFFTLive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxFFTLive.h; sourceTree = "<group>"; };
+		6A9FF38A1C581D6D00E19519 /* fft.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fft.cpp; sourceTree = "<group>"; };
+		6A9FF38B1C581D6D00E19519 /* fft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
+		6A9FF3901C581FC100E19519 /* soundDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundDetector.cpp; sourceTree = "<group>"; };
+		6A9FF3911C581FC100E19519 /* soundDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundDetector.h; sourceTree = "<group>"; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1121C3D5F1500892E5F /* pupilGazeInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pupilGazeInput.h; sourceTree = "<group>"; };
@@ -561,6 +576,39 @@
 				6A3DBC8C1C3DC1450074E872 /* linuxtrack.h */,
 			);
 			path = vendor;
+			sourceTree = "<group>";
+		};
+		6A9FF3811C581D6D00E19519 /* ofxFFT */ = {
+			isa = PBXGroup;
+			children = (
+				6A9FF3821C581D6D00E19519 /* src */,
+				6A9FF3891C581D6D00E19519 /* libs */,
+			);
+			name = ofxFFT;
+			sourceTree = "<group>";
+		};
+		6A9FF3821C581D6D00E19519 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6A9FF3831C581D6D00E19519 /* ofxFFTBase.cpp */,
+				6A9FF3841C581D6D00E19519 /* ofxFFTBase.h */,
+				6A9FF3851C581D6D00E19519 /* ofxFFTFile.cpp */,
+				6A9FF3861C581D6D00E19519 /* ofxFFTFile.h */,
+				6A9FF3871C581D6D00E19519 /* ofxFFTLive.cpp */,
+				6A9FF3881C581D6D00E19519 /* ofxFFTLive.h */,
+			);
+			name = src;
+			path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxFFT/src;
+			sourceTree = "<group>";
+		};
+		6A9FF3891C581D6D00E19519 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				6A9FF38A1C581D6D00E19519 /* fft.cpp */,
+				6A9FF38B1C581D6D00E19519 /* fft.h */,
+			);
+			name = libs;
+			path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxFFT/libs;
 			sourceTree = "<group>";
 		};
 		6E54289412D2D94F45A05113 /* libs */ = {
@@ -828,6 +876,7 @@
 				323AC52DEE629223E8AC64B6 /* ofxTransparentWindow */,
 				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 				BF8F87DF3E45EDAA7FBD88D2 /* ofxZmq */,
+				6A9FF3811C581D6D00E19519 /* ofxFFT */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -940,6 +989,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A9FF3901C581FC100E19519 /* soundDetector.cpp */,
+				6A9FF3911C581FC100E19519 /* soundDetector.h */,
 				6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */,
 				6A3DBCB31C4D88010074E872 /* dlcTransformer.h */,
 				6A3DBCAF1C4822BF0074E872 /* rakeCursorPipeline.cpp */,
@@ -1145,6 +1196,7 @@
 				FE23C414DBEED67C2B95D877 /* io_thread.cpp in Sources */,
 				108AD6D372C2E55BBBF5B80D /* ip.cpp in Sources */,
 				F16FB90766AB20929AA2A2E1 /* ipc_address.cpp in Sources */,
+				6A9FF38F1C581D6D00E19519 /* fft.cpp in Sources */,
 				B802F971A447E5E69969FC27 /* ipc_connecter.cpp in Sources */,
 				D802E5EFD1609FC03FB84E4C /* ipc_listener.cpp in Sources */,
 				B3411871BC4E8903DC2D38DC /* kqueue.cpp in Sources */,
@@ -1169,12 +1221,15 @@
 				60A85DCDC72998249AD3A962 /* plain_client.cpp in Sources */,
 				74B13A5D1D89F504436151DC /* plain_server.cpp in Sources */,
 				E6C75841C2C54F19AFF744A4 /* poll.cpp in Sources */,
+				6A9FF38D1C581D6D00E19519 /* ofxFFTFile.cpp in Sources */,
 				9AA6A6FDD24D139746725F84 /* poller_base.cpp in Sources */,
 				E0AEF13648B9402F3A8B3BF8 /* precompiled.cpp in Sources */,
 				78E669FE434633E8C981B10D /* proxy.cpp in Sources */,
+				6A9FF38C1C581D6D00E19519 /* ofxFFTBase.cpp in Sources */,
 				B64BC56185B027B5F1BAE141 /* pub.cpp in Sources */,
 				2977D8CA80F3AD414E1305A1 /* pull.cpp in Sources */,
 				C14F66AD6EC898B72495878A /* push.cpp in Sources */,
+				6A9FF38E1C581D6D00E19519 /* ofxFFTLive.cpp in Sources */,
 				EC7B7E0BF673B827DB1B64B0 /* random.cpp in Sources */,
 				4923A259CEB07FAC8597ADE4 /* raw_decoder.cpp in Sources */,
 				6A3DBC951C3EBC790074E872 /* offsetTransformer.cpp in Sources */,
@@ -1207,6 +1262,7 @@
 				F93C280855BA01CCCE5A0729 /* trie.cpp in Sources */,
 				1962ACC14FD1A2FA7103CA19 /* v1_decoder.cpp in Sources */,
 				C41D8279D7FFD4E6FD46D181 /* v1_encoder.cpp in Sources */,
+				6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */,
 				84C080AF2D0152C76C92D7AA /* v2_decoder.cpp in Sources */,
 				0881792EFE4D7000F7427DA7 /* v2_encoder.cpp in Sources */,
 				33648371B7F0E0B9B55E555C /* xpub.cpp in Sources */,
@@ -1365,6 +1421,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1408,6 +1465,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
 			};
