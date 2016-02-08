@@ -1,17 +1,24 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxFFTLive.h"
-#include "ofxFFTFile.h"
+
+namespace _VampHost {
+  namespace Vamp {
+    class Plugin;
+  };
+};
 
 class soundDetector {
 public:
   soundDetector() = default;
-  void setup();
-  void update();
+  void setup(ofBaseApp *base);
+  bool shouldClick();
   void draw();
+
+  void audioIn(float * input, int bufferSize, int nChannels);
 private:
-  ofSoundPlayer soundPlayer;
-  ofxFFTLive fftLive;
-  ofxFFTFile fftFile;
+  ofSoundStream *soundStream;
+  _VampHost::Vamp::Plugin *plugin;
+  unsigned long long frame;
+  bool doClick;
 };

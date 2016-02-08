@@ -12,6 +12,7 @@
 #include <functional>
 
 void moveMouseTo(ofVec2f pt);
+void clickLeftMouseButton(ofVec2f pt);
 
 struct mouseMonitor {
   mouseMonitor() : globalMonitor(0), localMonitor(0) {}

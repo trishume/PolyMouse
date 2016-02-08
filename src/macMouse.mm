@@ -35,6 +35,17 @@ void moveMouseTo(ofVec2f pt) {
   CFRelease(ev_ref);
 }
 
+void clickLeftMouseButton(ofVec2f pt) {
+  CGEventRef ev_ref;
+  CGPoint newPoint = CGPointMake(pt.x,pt.y);
+  CGEventRef evDown = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseDown, newPoint, kCGMouseButtonLeft);
+  CGEventRef evUp = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseUp, newPoint, kCGMouseButtonLeft);
+  CGEventPost(kCGHIDEventTap, evDown);
+  CGEventPost(kCGHIDEventTap, evUp);
+  CFRelease(evDown);
+  CFRelease(evUp);
+}
+
 mouseMonitor addMouseMonitor(std::function<void(ofVec2f)> func) {
   // TODO: these monitors might not get released, not sure ARC can handle the (void*) casts
   id globalMon = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask

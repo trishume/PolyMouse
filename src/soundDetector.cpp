@@ -1,28 +1,65 @@
 #include "soundDetector.h"
 
-void soundDetector::setup() {
-    fftFile.setMirrorData(false);
-    fftFile.setup();
-    fftLive.setMirrorData(false);
-    fftLive.setup();
+#include <vamp-hostsdk/PluginHostAdapter.h>
+#include <vamp-hostsdk/PluginInputDomainAdapter.h>
+#include <vamp-hostsdk/PluginLoader.h>
 
-    soundPlayer.loadSound("/Users/tristan/Music/popping.wav");
-    soundPlayer.setLoop(true);
-    soundPlayer.play();
+#include <iostream>
+
+using namespace std;
+
+using Vamp::Plugin;
+using Vamp::PluginHostAdapter;
+using Vamp::RealTime;
+using Vamp::HostExt::PluginLoader;
+using Vamp::HostExt::PluginWrapper;
+using Vamp::HostExt::PluginInputDomainAdapter;
+
+static const int kSampleRate = 44100;
+static const int kPopInstantOutput = 7;
+static const int kBufferSize = 512;
+
+void soundDetector::setup(ofBaseApp *base) {
+  ofSoundStream * soundStream = new ofSoundStream();
+  soundStream->setup(base,                   // callback obj.
+                     0,                      // out channels.
+                     1,                      // in channels.
+                     kSampleRate,            // sample rate.
+                     kBufferSize,            // buffer size.
+                     4);                     // number of buffers.
+  this->soundStream = soundStream;
+
+  frame = 0;
+  doClick = false;
+  PluginLoader *loader = PluginLoader::getInstance();
+  PluginLoader::PluginKey key = loader->composePluginKey("popclick", "popdetector");
+  plugin = loader->loadPlugin(key, kSampleRate, PluginLoader::ADAPT_ALL);
+
+  if (!plugin->initialise(1, kBufferSize, kBufferSize)) {
+    cerr << "ERROR: Plugin initialise failed." << endl;
+  }
 }
 
 //--------------------------------------------------------------
-void soundDetector::update() {
-    fftFile.update();
-    fftLive.update();
+bool soundDetector::shouldClick() {
+  if(doClick) {
+    cerr << "Pop!" << endl;
+    doClick = false;
+    return true;
+  }
+  return false;
 }
 
 //--------------------------------------------------------------
 void soundDetector::draw() {
-    ofSetColor(255);
-    ofDrawBitmapString("AUDIO FROM MIC (LIVE)", 10, 20);
-    ofDrawBitmapString("AUDIO FROM FILE (Popping)", 10, 310);
+}
 
-    fftLive.draw(10, 30);
-    fftFile.draw(10, 320);
+void soundDetector::audioIn(float * input, int bufferSize, int nChannels) {
+  RealTime rt = RealTime::frame2RealTime(frame * kBufferSize, kSampleRate);
+  Plugin::FeatureSet features = plugin->process(&input, rt);
+  frame += 1;
+
+  if(!features[kPopInstantOutput].empty()) {
+    doClick = true;
+  }
 }

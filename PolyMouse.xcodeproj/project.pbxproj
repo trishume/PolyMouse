@@ -65,6 +65,7 @@
 		6A9FF38E1C581D6D00E19519 /* ofxFFTLive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3871C581D6D00E19519 /* ofxFFTLive.cpp */; };
 		6A9FF38F1C581D6D00E19519 /* fft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF38A1C581D6D00E19519 /* fft.cpp */; };
 		6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3901C581FC100E19519 /* soundDetector.cpp */; };
+		6AA5740B1C692C83008A72F9 /* libvamp-hostsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -316,6 +317,7 @@
 		6A9FF38B1C581D6D00E19519 /* fft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fft.h; sourceTree = "<group>"; };
 		6A9FF3901C581FC100E19519 /* soundDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundDetector.cpp; sourceTree = "<group>"; };
 		6A9FF3911C581FC100E19519 /* soundDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundDetector.h; sourceTree = "<group>"; };
+		6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libvamp-hostsdk.a"; path = "/usr/local/Cellar/vamp-plugin-sdk/2.6/lib/libvamp-hostsdk.a"; sourceTree = "<absolute>"; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1121C3D5F1500892E5F /* pupilGazeInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pupilGazeInput.h; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AA5740B1C692C83008A72F9 /* libvamp-hostsdk.a in Frameworks */,
 				6A3DBCAB1C4432C40074E872 /* Foundation.framework in Frameworks */,
 				6A3DBCA91C4432BF0074E872 /* AppKit.framework in Frameworks */,
 				6A3DBCA71C4432AE0074E872 /* ApplicationServices.framework in Frameworks */,
@@ -971,6 +974,7 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
+				6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */,
 				6A3DBCAA1C4432C40074E872 /* Foundation.framework */,
 				6A3DBCA81C4432BF0074E872 /* AppKit.framework */,
 				6A3DBCA61C4432AE0074E872 /* ApplicationServices.framework */,
@@ -1414,12 +1418,16 @@
 					../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/include,
 					../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src,
 					../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/src,
+					/usr/local/include,
 				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/usr/local/Cellar/vamp-plugin-sdk/2.6/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -1458,12 +1466,16 @@
 					../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/include,
 					../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src,
 					../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/src,
+					/usr/local/include,
 				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/usr/local/Cellar/vamp-plugin-sdk/2.6/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

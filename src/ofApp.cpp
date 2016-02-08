@@ -35,7 +35,7 @@ void ofApp::setup(){
   rakePipeline.setup();
   liberalPipeline.setup();
 
-  detector.setup();
+  detector.setup(this);
 
   mousing = false;
 }
@@ -43,8 +43,10 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer->update();
-  detector.update();
   if(mousing) moveMouseTo(pointer->val);
+  if(detector.shouldClick()) {
+    clickLeftMouseButton(pointer->val);
+  }
 }
 
 //--------------------------------------------------------------
@@ -61,6 +63,11 @@ void ofApp::draw(){
   pointer->draw();
   if(!mousing) ofDrawCircle(pointer->val.x, pointer->val.y, 2);
   ofPopMatrix();
+}
+
+//--------------------------------------------------------------
+void ofApp::audioIn(float * input, int bufferSize, int nChannels) {
+  detector.audioIn(input, bufferSize, nChannels);
 }
 
 //--------------------------------------------------------------
