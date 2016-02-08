@@ -57,8 +57,8 @@ void ofApp::draw(){
 
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
-  if(pointer != &rakePipeline && kOverlayUI) gazeInp.draw();
-  if(kOverlayUI) pointer->draw();
+  if(pointer != &rakePipeline) gazeInp.draw();
+  pointer->draw();
   if(!mousing) ofDrawCircle(pointer->val.x, pointer->val.y, 2);
   ofPopMatrix();
 }
