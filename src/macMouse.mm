@@ -16,6 +16,9 @@
 static const int kLeftButtonMask = 1;
 static const int kRightButtonMask = 2;
 
+static const CGMouseButton kCGButtonMapping[2] = {kCGMouseButtonLeft, kCGMouseButtonRight};
+static const CGEventType kCGEventMapping[2] = {kCGEventLeftMouseDown, kCGEventLeftMouseUp};
+
 void moveMouseTo(ofVec2f pt) {
   CGEventType event;
   CGEventRef ev_ref;
@@ -35,15 +38,12 @@ void moveMouseTo(ofVec2f pt) {
   CFRelease(ev_ref);
 }
 
-void clickLeftMouseButton(ofVec2f pt) {
+void mouseEventAtPoint(mouseButtonType btn, mouseEventType evt, ofVec2f pt) {
   CGEventRef ev_ref;
   CGPoint newPoint = CGPointMake(pt.x,pt.y);
-  CGEventRef evDown = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseDown, newPoint, kCGMouseButtonLeft);
-  CGEventRef evUp = CGEventCreateMouseEvent(NULL, kCGEventLeftMouseUp, newPoint, kCGMouseButtonLeft);
-  CGEventPost(kCGHIDEventTap, evDown);
-  CGEventPost(kCGHIDEventTap, evUp);
-  CFRelease(evDown);
-  CFRelease(evUp);
+  CGEventRef cgEvt = CGEventCreateMouseEvent(NULL, kCGEventMapping[evt], newPoint, kCGButtonMapping[btn]);
+  CGEventPost(kCGHIDEventTap, cgEvt);
+  CFRelease(cgEvt);
 }
 
 mouseMonitor addMouseMonitor(std::function<void(ofVec2f)> func) {

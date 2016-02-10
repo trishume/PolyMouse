@@ -44,8 +44,11 @@ void ofApp::setup(){
 void ofApp::update(){
   pointer->update();
   if(mousing) moveMouseTo(pointer->val);
-  if(detector.shouldClick()) {
-    clickLeftMouseButton(pointer->val);
+  if(detector.shouldMouseDown()) {
+    mouseEventAtPoint(kMouseButtonLeft, kEventMouseDown, pointer->val);
+  }
+  if(detector.shouldMouseUp()) {
+    mouseEventAtPoint(kMouseButtonLeft, kEventMouseUp, pointer->val);
   }
 }
 

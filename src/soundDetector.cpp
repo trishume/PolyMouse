@@ -17,6 +17,8 @@ using Vamp::HostExt::PluginInputDomainAdapter;
 
 static const int kSampleRate = 44100;
 static const int kPopInstantOutput = 7;
+static const int kTssDownOutput = 3;
+static const int kTssUpOutput = 4;
 static const int kBufferSize = 512;
 
 void soundDetector::setup(ofBaseApp *base) {
@@ -30,21 +32,37 @@ void soundDetector::setup(ofBaseApp *base) {
   this->soundStream = soundStream;
 
   frame = 0;
-  doClick = false;
+  doDown = false;
+  doUp = false;
   PluginLoader *loader = PluginLoader::getInstance();
-  PluginLoader::PluginKey key = loader->composePluginKey("popclick", "popdetector");
-  plugin = loader->loadPlugin(key, kSampleRate, PluginLoader::ADAPT_ALL);
+  PluginLoader::PluginKey popKey = loader->composePluginKey("popclick", "popdetector");
+  popPlugin = loader->loadPlugin(popKey, kSampleRate, PluginLoader::ADAPT_ALL);
+  PluginLoader::PluginKey tssKey = loader->composePluginKey("popclick", "tssdetector");
+  tssPlugin = loader->loadPlugin(tssKey, kSampleRate, PluginLoader::ADAPT_ALL);
 
-  if (!plugin->initialise(1, kBufferSize, kBufferSize)) {
-    cerr << "ERROR: Plugin initialise failed." << endl;
+  if (!popPlugin->initialise(1, kBufferSize, kBufferSize)) {
+    cerr << "ERROR: Plugin pop initialise failed." << endl;
+  }
+  if (!tssPlugin->initialise(1, kBufferSize, kBufferSize)) {
+    cerr << "ERROR: Plugin tss initialise failed." << endl;
   }
 }
 
 //--------------------------------------------------------------
-bool soundDetector::shouldClick() {
-  if(doClick) {
-    cerr << "Pop!" << endl;
-    doClick = false;
+bool soundDetector::shouldMouseDown() {
+  if(doDown) {
+    cerr << "Mouse down!" << endl;
+    doDown = false;
+    return true;
+  }
+  return false;
+}
+
+//--------------------------------------------------------------
+bool soundDetector::shouldMouseUp() {
+  if(doUp) {
+    cerr << "Mouse up!" << endl;
+    doUp = false;
     return true;
   }
   return false;
@@ -56,10 +74,19 @@ void soundDetector::draw() {
 
 void soundDetector::audioIn(float * input, int bufferSize, int nChannels) {
   RealTime rt = RealTime::frame2RealTime(frame * kBufferSize, kSampleRate);
-  Plugin::FeatureSet features = plugin->process(&input, rt);
-  frame += 1;
 
-  if(!features[kPopInstantOutput].empty()) {
-    doClick = true;
+  Plugin::FeatureSet popFeatures = popPlugin->process(&input, rt);
+  Plugin::FeatureSet tssFeatures = tssPlugin->process(&input, rt);
+  if(!popFeatures[kPopInstantOutput].empty()) {
+    doDown = true;
+    doUp = true;
   }
+  if(!tssFeatures[kTssDownOutput].empty()) {
+    doDown = true;
+  }
+  if(!tssFeatures[kTssUpOutput].empty()) {
+    doUp = true;
+  }
+
+  frame += 1;
 }

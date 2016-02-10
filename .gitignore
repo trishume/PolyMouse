@@ -1,6 +1,9 @@
 bin/*.app
 bin/data/ofxRemoteUISettings.xml
 
+*.sublime-project
+*.sublime-workspace
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

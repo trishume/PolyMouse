@@ -12,13 +12,16 @@ class soundDetector {
 public:
   soundDetector() = default;
   void setup(ofBaseApp *base);
-  bool shouldClick();
+  bool shouldMouseDown();
+  bool shouldMouseUp();
   void draw();
 
   void audioIn(float * input, int bufferSize, int nChannels);
 private:
   ofSoundStream *soundStream;
-  _VampHost::Vamp::Plugin *plugin;
+  _VampHost::Vamp::Plugin *popPlugin;
+  _VampHost::Vamp::Plugin *tssPlugin;
   unsigned long long frame;
-  bool doClick;
+  bool doDown;
+  bool doUp;
 };
