@@ -10,7 +10,7 @@ namespace _VampHost {
 
 class soundDetector {
 public:
-  soundDetector() = default;
+  soundDetector() : frame(0), doDown(false), doUp(false), initialized(false) {}
   void setup(ofBaseApp *base);
   bool shouldMouseDown();
   bool shouldMouseUp();
@@ -24,4 +24,5 @@ private:
   unsigned long long frame;
   bool doDown;
   bool doUp;
+  bool initialized;
 };

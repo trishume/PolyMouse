@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxTransparentWindow.h"
 
+#include "inputProcess.h"
 #include "pupilGazeInput.h"
 #include "linuxtrackInput.h"
 #include "dlcTransformer.h"

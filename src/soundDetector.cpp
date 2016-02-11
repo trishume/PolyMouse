@@ -31,9 +31,6 @@ void soundDetector::setup(ofBaseApp *base) {
                      4);                     // number of buffers.
   this->soundStream = soundStream;
 
-  frame = 0;
-  doDown = false;
-  doUp = false;
   PluginLoader *loader = PluginLoader::getInstance();
   PluginLoader::PluginKey popKey = loader->composePluginKey("popclick", "popdetector");
   popPlugin = loader->loadPlugin(popKey, kSampleRate, PluginLoader::ADAPT_ALL);
@@ -46,6 +43,7 @@ void soundDetector::setup(ofBaseApp *base) {
   if (!tssPlugin->initialise(1, kBufferSize, kBufferSize)) {
     cerr << "ERROR: Plugin tss initialise failed." << endl;
   }
+  initialized = true;
 }
 
 //--------------------------------------------------------------
@@ -73,6 +71,7 @@ void soundDetector::draw() {
 }
 
 void soundDetector::audioIn(float * input, int bufferSize, int nChannels) {
+  if(!initialized) return;
   RealTime rt = RealTime::frame2RealTime(frame * kBufferSize, kSampleRate);
 
   Plugin::FeatureSet popFeatures = popPlugin->process(&input, rt);
