@@ -43,12 +43,14 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer->update();
-  if(mousing) moveMouseTo(pointer->val);
-  if(detector.shouldMouseDown()) {
-    mouseEventAtPoint(kMouseButtonLeft, kEventMouseDown, pointer->val);
-  }
-  if(detector.shouldMouseUp()) {
-    mouseEventAtPoint(kMouseButtonLeft, kEventMouseUp, pointer->val);
+  if(ltrInp.userEngaged) {
+    if(mousing) moveMouseTo(pointer->val);
+    if(detector.shouldMouseDown()) {
+      mouseEventAtPoint(kMouseButtonLeft, kEventMouseDown, pointer->val);
+    }
+    if(detector.shouldMouseUp()) {
+      mouseEventAtPoint(kMouseButtonLeft, kEventMouseUp, pointer->val);
+    }
   }
 }
 
@@ -57,6 +59,9 @@ void ofApp::draw(){
   if(kOverlayUI) transparent.update();
   ofSetColor(255, 0, 255);
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
+  if(!ltrInp.userEngaged) {
+    ofDrawBitmapString("clicking disabled", 10, 45);
+  }
 
   detector.draw();
 

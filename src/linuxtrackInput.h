@@ -16,4 +16,8 @@ public:
   linuxtrackInput();
   void setup();
   void update();
+  bool userEngaged;
+private:
+  ofVec2f last;
+  int countNoChange;
 };

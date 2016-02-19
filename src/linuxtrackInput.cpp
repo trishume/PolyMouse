@@ -10,10 +10,11 @@
 #include "linuxtrack.h"
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
-linuxtrackInput::linuxtrackInput() {}
+linuxtrackInput::linuxtrackInput() : userEngaged(false) {}
 
 void linuxtrackInput::setup() {
   cout << "Initializing linuxtrack ... " << endl;
@@ -36,4 +37,13 @@ void linuxtrackInput::update() {
   val.x = full_pose.raw_yaw * -1;
   val.y = full_pose.raw_pitch * -1;
   // cout << "head pose: " << val << endl;
+
+  if(val == last) {
+    countNoChange++;
+  } else {
+    countNoChange = 0;
+  }
+
+  userEngaged = (countNoChange < 30 && abs(val.x) < 35.0);
+  last = val;
 }
