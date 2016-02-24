@@ -53,6 +53,9 @@ void ofApp::update(){
     if(detector.scrollDown) {
       emitScrollEvent(mouseSrc, -20);
     }
+    if(detector.scrollUp) {
+      emitScrollEvent(mouseSrc, 20);
+    }
   }
 }
 

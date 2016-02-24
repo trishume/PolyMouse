@@ -16,6 +16,7 @@ public:
   bool shouldMouseUp();
   void draw();
   bool scrollDown;
+  bool scrollUp;
 
   void audioIn(float * input, int bufferSize, int nChannels);
 private:
@@ -23,6 +24,7 @@ private:
   _VampHost::Vamp::Plugin *popPlugin;
   _VampHost::Vamp::Plugin *tssPlugin;
   _VampHost::Vamp::Plugin *scrollDownPlugin;
+  _VampHost::Vamp::Plugin *scrollUpPlugin;
   unsigned long long frame;
   bool doDown;
   bool doUp;
