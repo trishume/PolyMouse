@@ -11,6 +11,7 @@
 #include "liberalMagicPipeline.h"
 #include "animatedMagicPipeline.h"
 #include "rakeCursorPipeline.h"
+#include "macMouse.h"
 
 #include "soundDetector.h"
 
@@ -49,6 +50,7 @@ class ofApp : public ofBaseApp{
 		inputProcess<ofVec2f> *pointer;
 
 		soundDetector detector;
+		mouseEventSource mouseSrc;
 
 		bool mousing;
 };

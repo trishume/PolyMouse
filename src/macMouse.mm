@@ -19,7 +19,14 @@ static const int kRightButtonMask = 2;
 static const CGMouseButton kCGButtonMapping[2] = {kCGMouseButtonLeft, kCGMouseButtonRight};
 static const CGEventType kCGEventMapping[2] = {kCGEventLeftMouseDown, kCGEventLeftMouseUp};
 
-void moveMouseTo(ofVec2f pt) {
+mouseEventSource::mouseEventSource() {
+  evtSrc = (void*)CGEventSourceCreate(kCGEventSourceStateCombinedSessionState);
+}
+mouseEventSource::~mouseEventSource() {
+  CFRelease(evtSrc);
+}
+
+void moveMouseTo(mouseEventSource &src, ofVec2f pt) {
   CGEventType event;
   CGEventRef ev_ref;
 
@@ -33,15 +40,20 @@ void moveMouseTo(ofVec2f pt) {
   }
 
   CGPoint newPoint = CGPointMake(pt.x,pt.y);
-  ev_ref = CGEventCreateMouseEvent(NULL, event, newPoint, kCGMouseButtonLeft);
+  ev_ref = CGEventCreateMouseEvent((CGEventSourceRef)src.evtSrc, event, newPoint, kCGMouseButtonLeft);
   CGEventPost(kCGHIDEventTap, ev_ref);
   CFRelease(ev_ref);
 }
 
-void mouseEventAtPoint(mouseButtonType btn, mouseEventType evt, ofVec2f pt) {
-  CGEventRef ev_ref;
+void mouseEventAtPoint(mouseEventSource &src, mouseButtonType btn, mouseEventType evt, ofVec2f pt) {
   CGPoint newPoint = CGPointMake(pt.x,pt.y);
-  CGEventRef cgEvt = CGEventCreateMouseEvent(NULL, kCGEventMapping[evt], newPoint, kCGButtonMapping[btn]);
+  CGEventRef cgEvt = CGEventCreateMouseEvent((CGEventSourceRef)src.evtSrc, kCGEventMapping[evt], newPoint, kCGButtonMapping[btn]);
+  CGEventPost(kCGHIDEventTap, cgEvt);
+  CFRelease(cgEvt);
+}
+
+void emitScrollEvent(mouseEventSource &src, int amount) {
+  CGEventRef cgEvt = CGEventCreateScrollWheelEvent ((CGEventSourceRef)src.evtSrc, kCGScrollEventUnitPixel, 1, amount);
   CGEventPost(kCGHIDEventTap, cgEvt);
   CFRelease(cgEvt);
 }

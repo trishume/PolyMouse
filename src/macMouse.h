@@ -21,8 +21,15 @@ enum mouseEventType {
   kEventMouseUp = 1
 };
 
-void moveMouseTo(ofVec2f pt);
-void mouseEventAtPoint(mouseButtonType btn, mouseEventType evt, ofVec2f pt);
+struct mouseEventSource {
+  mouseEventSource();
+  ~mouseEventSource();
+  void *evtSrc;
+};
+
+void moveMouseTo(mouseEventSource &src, ofVec2f pt);
+void mouseEventAtPoint(mouseEventSource &src, mouseButtonType btn, mouseEventType evt, ofVec2f pt);
+void emitScrollEvent(mouseEventSource &src, int amount);
 
 struct mouseMonitor {
   mouseMonitor() : globalMonitor(0), localMonitor(0) {}

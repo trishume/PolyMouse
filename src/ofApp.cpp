@@ -1,7 +1,6 @@
 #include "ofApp.h"
 
 #include "ofxRemoteUIServer.h"
-#include "macMouse.h"
 
 #include <iostream>
 using namespace std;
@@ -44,12 +43,15 @@ void ofApp::setup(){
 void ofApp::update(){
   pointer->update();
   if(ltrInp.userEngaged && mousing) {
-    moveMouseTo(pointer->val);
+    moveMouseTo(mouseSrc, pointer->val);
     if(detector.shouldMouseDown()) {
-      mouseEventAtPoint(kMouseButtonLeft, kEventMouseDown, pointer->val);
+      mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseDown, pointer->val);
     }
     if(detector.shouldMouseUp()) {
-      mouseEventAtPoint(kMouseButtonLeft, kEventMouseUp, pointer->val);
+      mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseUp, pointer->val);
+    }
+    if(detector.scrollDown) {
+      emitScrollEvent(mouseSrc, -20);
     }
   }
 }

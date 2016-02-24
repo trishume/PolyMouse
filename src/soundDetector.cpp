@@ -19,6 +19,8 @@ static const int kSampleRate = 44100;
 static const int kPopInstantOutput = 7;
 static const int kTssDownOutput = 3;
 static const int kTssUpOutput = 4;
+static const int kScrollOnOutput = 3;
+static const int kScrollOffOutput = 4;
 static const int kBufferSize = 512;
 
 void soundDetector::setup(ofBaseApp *base) {
@@ -36,12 +38,17 @@ void soundDetector::setup(ofBaseApp *base) {
   popPlugin = loader->loadPlugin(popKey, kSampleRate, PluginLoader::ADAPT_ALL);
   PluginLoader::PluginKey tssKey = loader->composePluginKey("popclick", "tssdetector");
   tssPlugin = loader->loadPlugin(tssKey, kSampleRate, PluginLoader::ADAPT_ALL);
+  PluginLoader::PluginKey templateKey = loader->composePluginKey("popclick", "templatedetector");
+  scrollDownPlugin = loader->loadPlugin(templateKey, kSampleRate, PluginLoader::ADAPT_ALL);
 
   if (!popPlugin->initialise(1, kBufferSize, kBufferSize)) {
     cerr << "ERROR: Plugin pop initialise failed." << endl;
   }
   if (!tssPlugin->initialise(1, kBufferSize, kBufferSize)) {
     cerr << "ERROR: Plugin tss initialise failed." << endl;
+  }
+  if (!scrollDownPlugin->initialise(1, kBufferSize, kBufferSize)) {
+    cerr << "ERROR: Plugin scrolldown initialise failed." << endl;
   }
   initialized = true;
 }
@@ -76,6 +83,7 @@ void soundDetector::audioIn(float * input, int bufferSize, int nChannels) {
 
   Plugin::FeatureSet popFeatures = popPlugin->process(&input, rt);
   Plugin::FeatureSet tssFeatures = tssPlugin->process(&input, rt);
+  Plugin::FeatureSet scrollDownFeatures = scrollDownPlugin->process(&input, rt);
   if(!popFeatures[kPopInstantOutput].empty()) {
     doDown = true;
     doUp = true;
@@ -85,6 +93,12 @@ void soundDetector::audioIn(float * input, int bufferSize, int nChannels) {
   }
   if(!tssFeatures[kTssUpOutput].empty()) {
     doUp = true;
+  }
+  if(!scrollDownFeatures[kScrollOnOutput].empty()) {
+    scrollDown = true;
+  }
+  if(!scrollDownFeatures[kScrollOffOutput].empty()) {
+    scrollDown = false;
   }
 
   frame += 1;
