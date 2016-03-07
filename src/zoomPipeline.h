@@ -11,6 +11,7 @@
 #include "inputProcess.h"
 #include "fixationTransformer.h"
 #include "ofVec2f.h"
+#include "ofImage.h"
 
 class zoomPipeline : public inputProcess<ofVec2f> {
 public:
@@ -18,10 +19,18 @@ public:
   void setup();
   void update();
   void draw();
+
+  void trigger();
 private:
   inputProcess<ofVec2f> *rawGaze;
   fixationTransformer gazeInp;
 
   float screenW;
   float screenH;
+
+  int zooming;
+  ofImage curImage;
+  ofRectangle subRegion;
+
+  ofRectangle getZoomRect();
 };

@@ -44,6 +44,9 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer->update();
+  if(detector.shouldMouseDown() && pointer == &zPipeline) {
+    zPipeline.trigger();
+  }
   if(ltrInp.userEngaged && mousing) {
     moveMouseTo(mouseSrc, pointer->val);
     if(detector.shouldMouseDown()) {
