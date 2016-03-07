@@ -11,6 +11,7 @@
 #include "liberalMagicPipeline.h"
 #include "animatedMagicPipeline.h"
 #include "rakeCursorPipeline.h"
+#include "zoomPipeline.h"
 #include "macMouse.h"
 
 #include "soundDetector.h"
@@ -47,6 +48,7 @@ class ofApp : public ofBaseApp{
 		animatedMagicPipeline animatedPipeline;
 		rakeCursorPipeline rakePipeline;
 		liberalMagicPipeline liberalPipeline;
+		zoomPipeline zPipeline;
 		inputProcess<ofVec2f> *pointer;
 
 		soundDetector detector;

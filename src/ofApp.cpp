@@ -5,12 +5,13 @@
 #include <iostream>
 using namespace std;
 
-static const bool kOverlayUI = false;
+static const bool kOverlayUI = true;
 
 ofApp::ofApp() : gazeInp(&rawGazeInp),
   animatedPipeline(&gazeInp, &ltrInp),
   rakePipeline(&gazeInp, &ltrInp),
   liberalPipeline(&gazeInp, &ltrInp),
+  zPipeline(&gazeInp),
   pointer(&animatedPipeline), detector() { }
 
 //--------------------------------------------------------------
@@ -33,6 +34,7 @@ void ofApp::setup(){
   animatedPipeline.setup();
   rakePipeline.setup();
   liberalPipeline.setup();
+  zPipeline.setup();
 
   detector.setup(this);
 
@@ -99,6 +101,10 @@ void ofApp::keyPressed(int key){
   if(key == 'l') {
     cout << "Liberal MAGIC pipeline activated" << endl;
     pointer = &liberalPipeline;
+  }
+  if(key == 'z') {
+    cout << "Zoom pipeline activated" << endl;
+    pointer = &zPipeline;
   }
 }
 

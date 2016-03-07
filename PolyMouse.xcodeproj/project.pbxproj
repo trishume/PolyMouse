@@ -45,6 +45,8 @@
 		6282FE6459BD98493CE3F997 /* ofxOscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27C6206B983D1CBE0918E997 /* ofxOscMessage.cpp */; };
 		648345C67FAA613E69A5A96D /* ctx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8D705128508A2AA029C2D995 /* ctx.cpp */; };
 		67FCDA2FA543F099EBF94374 /* mailbox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 94348FFDEDB87049F65CB38D /* mailbox.cpp */; };
+		6A0D8C1A1C8E01060092634C /* ofxDisplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0D8C181C8E01060092634C /* ofxDisplay.cpp */; };
+		6A0D8C1D1C8E03A60092634C /* zoomPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A0D8C1B1C8E03A60092634C /* zoomPipeline.cpp */; };
 		6A3DBC8D1C3DC1450074E872 /* linuxtrack.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC8B1C3DC1450074E872 /* linuxtrack.c */; };
 		6A3DBC901C3EAD480074E872 /* linuxtrackInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBC8E1C3EAD480074E872 /* linuxtrackInput.cpp */; };
 		6A3DBC921C3EB97F0074E872 /* libdl.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3DBC911C3EB97F0074E872 /* libdl.tbd */; };
@@ -280,6 +282,10 @@
 		673F5F5980D7659948EFF5AE /* stream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = stream.cpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/stream.cpp; sourceTree = SOURCE_ROOT; };
 		67700671EE7A1823C54FD6FD /* gssapi_client.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = gssapi_client.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/gssapi_client.hpp; sourceTree = SOURCE_ROOT; };
 		69FC749A66C5871FF0452768 /* pgm_sender.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = pgm_sender.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/pgm_sender.hpp; sourceTree = SOURCE_ROOT; };
+		6A0D8C181C8E01060092634C /* ofxDisplay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxDisplay.cpp; sourceTree = "<group>"; };
+		6A0D8C191C8E01060092634C /* ofxDisplay.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxDisplay.h; sourceTree = "<group>"; };
+		6A0D8C1B1C8E03A60092634C /* zoomPipeline.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zoomPipeline.cpp; sourceTree = "<group>"; };
+		6A0D8C1C1C8E03A60092634C /* zoomPipeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zoomPipeline.h; sourceTree = "<group>"; };
 		6A3DBC8B1C3DC1450074E872 /* linuxtrack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = linuxtrack.c; sourceTree = "<group>"; };
 		6A3DBC8C1C3DC1450074E872 /* linuxtrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = linuxtrack.h; sourceTree = "<group>"; };
 		6A3DBC8E1C3EAD480074E872 /* linuxtrackInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = linuxtrackInput.cpp; sourceTree = "<group>"; };
@@ -570,6 +576,24 @@
 			children = (
 			);
 			name = local_addons;
+			sourceTree = "<group>";
+		};
+		6A0D8C161C8E01060092634C /* ofxDisplay */ = {
+			isa = PBXGroup;
+			children = (
+				6A0D8C171C8E01060092634C /* src */,
+			);
+			name = ofxDisplay;
+			sourceTree = "<group>";
+		};
+		6A0D8C171C8E01060092634C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6A0D8C181C8E01060092634C /* ofxDisplay.cpp */,
+				6A0D8C191C8E01060092634C /* ofxDisplay.h */,
+			);
+			name = src;
+			path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxDisplay/src;
 			sourceTree = "<group>";
 		};
 		6A3DBC8A1C3DC1450074E872 /* vendor */ = {
@@ -880,6 +904,7 @@
 				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 				BF8F87DF3E45EDAA7FBD88D2 /* ofxZmq */,
 				6A9FF3811C581D6D00E19519 /* ofxFFT */,
+				6A0D8C161C8E01060092634C /* ofxDisplay */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -993,6 +1018,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A0D8C1B1C8E03A60092634C /* zoomPipeline.cpp */,
+				6A0D8C1C1C8E03A60092634C /* zoomPipeline.h */,
 				6A9FF3901C581FC100E19519 /* soundDetector.cpp */,
 				6A9FF3911C581FC100E19519 /* soundDetector.h */,
 				6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */,
@@ -1155,6 +1182,7 @@
 				42998AEF1715E4F2750270DD /* IpEndpointName.cpp in Sources */,
 				FD479044885EC6166AE5ACA1 /* NetworkingUtils.cpp in Sources */,
 				C47BA3977779AA555F5C0951 /* UdpSocket.cpp in Sources */,
+				6A0D8C1D1C8E03A60092634C /* zoomPipeline.cpp in Sources */,
 				1AF02613CD1B7D72FDD9E69B /* OscOutboundPacketStream.cpp in Sources */,
 				6A3DBC991C3ED49A0074E872 /* offsetPipeline.cpp in Sources */,
 				C85BCFEE18F4F9F5303B9AA4 /* OscPrintReceivedElements.cpp in Sources */,
@@ -1232,6 +1260,7 @@
 				6A9FF38C1C581D6D00E19519 /* ofxFFTBase.cpp in Sources */,
 				B64BC56185B027B5F1BAE141 /* pub.cpp in Sources */,
 				2977D8CA80F3AD414E1305A1 /* pull.cpp in Sources */,
+				6A0D8C1A1C8E01060092634C /* ofxDisplay.cpp in Sources */,
 				C14F66AD6EC898B72495878A /* push.cpp in Sources */,
 				6A9FF38E1C581D6D00E19519 /* ofxFFTLive.cpp in Sources */,
 				EC7B7E0BF673B827DB1B64B0 /* random.cpp in Sources */,
