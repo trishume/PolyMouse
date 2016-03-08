@@ -25,3 +25,9 @@ Hands-free pointing could be useful for:
 
 There already exist hands-free eye and head tracking based pointing techniques but they are significantly slower than using a standard mouse. An example of this is pure gaze based mouse software which often requires both a magnifying stage for increased accuracy and a dwell clicking stage, both of which take a significant amount of time.
 
+## License
+
+This software is released under the GPLv3 (full text in the `LICENSE` file).
+
+I chose a copyleft license because this is intended to be used as standalone software rather than a library.
+I would like any improvements people make to also be available as open source.

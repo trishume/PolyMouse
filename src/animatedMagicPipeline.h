@@ -1,10 +1,6 @@
-//
-//  animatedMagicPipeline.h
-//  PolyMouse
-//
-//  Created by Tristan Hume on 2016-01-07.
-//
-//
+// PolyMouse
+// Copyright (C) 2016  Tristan Hume
+// Released under the GPLv3, see the LICENSE file for the full text
 
 #pragma once
 

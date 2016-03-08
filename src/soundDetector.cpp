@@ -1,3 +1,7 @@
+// PolyMouse
+// Copyright (C) 2016  Tristan Hume
+// Released under the GPLv3, see the LICENSE file for the full text
+
 #include "soundDetector.h"
 
 #include <vamp-hostsdk/PluginHostAdapter.h>

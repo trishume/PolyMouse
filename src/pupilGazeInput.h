@@ -1,10 +1,6 @@
-//
-//  pupilGazeInput.hpp
-//  PolyMouse
-//
-//  Created by Tristan Hume on 2016-01-06.
-//
-//
+// PolyMouse
+// Copyright (C) 2016  Tristan Hume
+// Released under the GPLv3, see the LICENSE file for the full text
 
 #pragma once
 
