@@ -17,8 +17,8 @@ static const float kDefaultVelocityExponent = 1.5;
 
 diffTransformer::diffTransformer(inputProcess<ofVec2f> *inp, std::string name)
   : inp(inp), name(name),
-    cdMin(16.0, 10.0), cdMax(58.5, 72.0),
-    vMin(0.0003,0.0004), vMax(0.0025, 0.0025),
+    cdMin(10.0, 10.0), cdMax(65.0, 65.0),
+    vMin(0.0004,0.0004), vMax(0.0025, 0.0025),
     lambda(1000.0, 1000.0), ratio(0.7, 0.7) {}
 
 void diffTransformer::setup() {
@@ -34,13 +34,13 @@ void diffTransformer::update() {
 
   float dt = ofGetLastFrameTime();
   ofVec2f vInf = ratio*(vMax - vMin) + vMin;
-  ofVec2f v = diff*dt;
+  rawVel = diff*dt;
 
   for(unsigned i = 0; i < 2; ++i) {
-    float exponent = -(lambda[i])*(abs(v[i])-vInf[i]);
+    float exponent = -(lambda[i])*(abs(rawVel[i])-vInf[i]);
     float cd = ((cdMax[i]-cdMin[i])/(1.0+exp(exponent)))+cdMin[i];
     val[i] = diff[i] * cd;
   }
-  // cout << "raw diff: " << diff*dt << endl;
-  cout << "diff: " << val << endl;
+  // cout << "raw diff: " << rawVel << endl;
+  // cout << "diff: " << val << endl;
 }
