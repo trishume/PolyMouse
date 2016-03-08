@@ -23,6 +23,11 @@ public:
 private:
   inputProcess<ofVec2f> *inp;
   std::string name;
-  float scale;
-  float exponent;
+
+  ofVec2f cdMin;
+  ofVec2f cdMax;
+  ofVec2f vMin;
+  ofVec2f vMax;
+  ofVec2f lambda;
+  ofVec2f ratio;
 };
