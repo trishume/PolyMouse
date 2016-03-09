@@ -4,6 +4,7 @@
 
 #include "pupilGazeInput.h"
 #include "ofAppRunner.h"
+#include "ofxJSON.h"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -14,8 +15,13 @@ using namespace std;
 pupilGazeInput::pupilGazeInput() {}
 
 void pupilGazeInput::setup() {
+  triggered = false;
+  screenW = ofGetScreenWidth();
+  screenH = ofGetScreenHeight();
+
   cout << "connecting to server..." << endl;
   subscriber.connect("tcp://localhost:5000");
+  // subscriber.setFilter("gaze_positions");
   cout << "connected" << endl;
 }
 
@@ -24,39 +30,25 @@ void pupilGazeInput::update() {
     ofBuffer data;
     subscriber.getNextMessage(data);
 
-    // cout << "received data: " << data << endl;
-    parsePacket(data.getText());
+    cout << "received data: " << data << endl;
+    string msg = data.getText();
+    if(msg == "gaze_positions") {
+      triggered = true;
+    } else if(triggered) {
+      parsePacket(msg);
+      triggered = false;
+    }
   }
 }
 
 bool pupilGazeInput::parsePacket(const string &s) {
-  stringstream ss(s);
-  string item;
+  ofxJSON json;
+  json.parse(s);
 
-  getline(ss, item);
-  if(item != "Gaze") return false;
-
-  while (getline(ss, item, ':')) {
-    string valueForItem;
-    getline(ss, valueForItem);
-    if(item == "realtime gaze on screen") {
-      ofVec2f fraction = parsePoint(valueForItem);
-      val = ofVec2f(fraction.x * ofGetScreenWidth(), (1-fraction.y) * ofGetScreenHeight());
-      // cout << "gaze at " << valueForItem << ' ' << fraction << " = " << val << endl;
-    }
-  }
+  if(json.size() == 0) return false;
+  auto coords = json[0]["realtime gaze on screen"];
+  ofVec2f fraction(coords[0].asFloat(), coords[1].asFloat());
+  val = ofVec2f(fraction.x * screenW, (1-fraction.y) * screenH);
 
   return true;
-}
-
-ofVec2f pupilGazeInput::parsePoint(const string &s) {
-  assert(s.size() > 3);
-  stringstream ss(s.substr(1, s.size()-2));
-
-  ofVec2f vec;
-  char c;
-  ss >> vec.x >> c >> vec.y;
-  assert(c == ',');
-
-  return vec;
 }

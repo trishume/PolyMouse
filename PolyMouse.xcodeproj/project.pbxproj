@@ -60,6 +60,8 @@
 		6A3DBCAE1C4801890074E872 /* animatedMagicPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCAC1C4801890074E872 /* animatedMagicPipeline.cpp */; };
 		6A3DBCB11C4822BF0074E872 /* rakeCursorPipeline.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCAF1C4822BF0074E872 /* rakeCursorPipeline.cpp */; };
 		6A3DBCB41C4D88010074E872 /* dlcTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */; };
+		6A61E6D91C90A650002851CE /* ofxJSONElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6CF1C90A650002851CE /* ofxJSONElement.cpp */; };
+		6A61E6DA1C90A650002851CE /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6D81C90A650002851CE /* jsoncpp.cpp */; };
 		6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3901C581FC100E19519 /* soundDetector.cpp */; };
 		6AA5740B1C692C83008A72F9 /* libvamp-hostsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
@@ -303,6 +305,12 @@
 		6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dlcTransformer.cpp; sourceTree = "<group>"; };
 		6A3DBCB31C4D88010074E872 /* dlcTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dlcTransformer.h; sourceTree = "<group>"; };
 		6A51ECFD919B966FAFEDF1E9 /* ctx.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ctx.hpp; path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxZmq/libs/zmq/src/ctx.hpp; sourceTree = SOURCE_ROOT; };
+		6A61E6CE1C90A650002851CE /* ofxJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxJSON.h; sourceTree = "<group>"; };
+		6A61E6CF1C90A650002851CE /* ofxJSONElement.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxJSONElement.cpp; sourceTree = "<group>"; };
+		6A61E6D01C90A650002851CE /* ofxJSONElement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxJSONElement.h; sourceTree = "<group>"; };
+		6A61E6D51C90A650002851CE /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
+		6A61E6D61C90A650002851CE /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		6A61E6D81C90A650002851CE /* jsoncpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		6A9FF3901C581FC100E19519 /* soundDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundDetector.cpp; sourceTree = "<group>"; };
 		6A9FF3911C581FC100E19519 /* soundDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundDetector.h; sourceTree = "<group>"; };
 		6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libvamp-hostsdk.a"; path = "/usr/local/Cellar/vamp-plugin-sdk/2.6/lib/libvamp-hostsdk.a"; sourceTree = "<absolute>"; };
@@ -567,6 +575,69 @@
 				6A3DBC8C1C3DC1450074E872 /* linuxtrack.h */,
 			);
 			path = vendor;
+			sourceTree = "<group>";
+		};
+		6A61E6CC1C90A650002851CE /* ofxJSON */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6CD1C90A650002851CE /* src */,
+				6A61E6D11C90A650002851CE /* libs */,
+			);
+			name = ofxJSON;
+			sourceTree = "<group>";
+		};
+		6A61E6CD1C90A650002851CE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6CE1C90A650002851CE /* ofxJSON.h */,
+				6A61E6CF1C90A650002851CE /* ofxJSONElement.cpp */,
+				6A61E6D01C90A650002851CE /* ofxJSONElement.h */,
+			);
+			name = src;
+			path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxJSON/src;
+			sourceTree = "<group>";
+		};
+		6A61E6D11C90A650002851CE /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6D21C90A650002851CE /* jsoncpp */,
+			);
+			name = libs;
+			path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxJSON/libs;
+			sourceTree = "<group>";
+		};
+		6A61E6D21C90A650002851CE /* jsoncpp */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6D31C90A650002851CE /* include */,
+				6A61E6D71C90A650002851CE /* src */,
+			);
+			path = jsoncpp;
+			sourceTree = "<group>";
+		};
+		6A61E6D31C90A650002851CE /* include */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6D41C90A650002851CE /* json */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		6A61E6D41C90A650002851CE /* json */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6D51C90A650002851CE /* json-forwards.h */,
+				6A61E6D61C90A650002851CE /* json.h */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		6A61E6D71C90A650002851CE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6D81C90A650002851CE /* jsoncpp.cpp */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		6E54289412D2D94F45A05113 /* libs */ = {
@@ -834,6 +905,7 @@
 				323AC52DEE629223E8AC64B6 /* ofxTransparentWindow */,
 				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 				BF8F87DF3E45EDAA7FBD88D2 /* ofxZmq */,
+				6A61E6CC1C90A650002851CE /* ofxJSON */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -1163,6 +1235,7 @@
 				E9788D4DF5B0E8EF5E9DEC11 /* metadata.cpp in Sources */,
 				483F454FAC5126D7BCB32136 /* msg.cpp in Sources */,
 				F7CB67ACBCC7437F4FAC04E4 /* mtrie.cpp in Sources */,
+				6A61E6DA1C90A650002851CE /* jsoncpp.cpp in Sources */,
 				DF8C5ADC905D38C7E0DAC0BB /* norm_engine.cpp in Sources */,
 				7A9E70B8BE3310CA5ED22863 /* null_mechanism.cpp in Sources */,
 				2B251356B69E74A29DCC9D4A /* object.cpp in Sources */,
@@ -1220,6 +1293,7 @@
 				84C080AF2D0152C76C92D7AA /* v2_decoder.cpp in Sources */,
 				0881792EFE4D7000F7427DA7 /* v2_encoder.cpp in Sources */,
 				33648371B7F0E0B9B55E555C /* xpub.cpp in Sources */,
+				6A61E6D91C90A650002851CE /* ofxJSONElement.cpp in Sources */,
 				7281DE340AF5F57CB1040AD5 /* xsub.cpp in Sources */,
 				E1FCFA6DC071E01A47CEC45B /* zmq.cpp in Sources */,
 				7F78CC12F6844748AE66403D /* zmq_utils.cpp in Sources */,
@@ -1379,7 +1453,7 @@
 					"/usr/local/Cellar/vamp-plugin-sdk/2.6/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxJSON/libs/jsoncpp/include/;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1427,7 +1501,7 @@
 					"/usr/local/Cellar/vamp-plugin-sdk/2.6/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxJSON/libs/jsoncpp/include/;
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;
 			};

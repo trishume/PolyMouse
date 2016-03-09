@@ -15,6 +15,8 @@ public:
   void update();
 private:
   bool parsePacket(const string &s);
-  ofVec2f parsePoint(const string &s);
   ofxZmqSubscriber subscriber;
+  bool triggered;
+  int screenW;
+  int screenH;
 };
