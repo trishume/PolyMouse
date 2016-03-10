@@ -75,6 +75,7 @@ void ofApp::draw(){
   if(pointer != &rakePipeline) gazeInp.draw();
   pointer->draw();
   if(!mousing) ofDrawCircle(pointer->val.x, pointer->val.y, 2);
+  ofDrawCircle(rawGazeInp.altVal.x, rawGazeInp.altVal.y, 3);
   ofPopMatrix();
 }
 

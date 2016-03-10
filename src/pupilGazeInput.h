@@ -13,6 +13,8 @@ public:
   pupilGazeInput();
   void setup();
   void update();
+
+  ofVec2f altVal;
 private:
   bool parsePacket(const string &s);
   ofxZmqSubscriber subscriber;

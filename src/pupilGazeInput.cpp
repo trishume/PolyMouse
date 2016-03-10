@@ -50,5 +50,9 @@ bool pupilGazeInput::parsePacket(const string &s) {
   ofVec2f fraction(coords[0].asFloat(), coords[1].asFloat());
   val = ofVec2f(fraction.x * screenW, (1-fraction.y) * screenH);
 
+  auto coords2 = json[0]["realtime corrected gaze on screen"];
+  ofVec2f fraction2(coords2[0].asFloat(), coords2[1].asFloat());
+  altVal = ofVec2f(fraction2.x * screenW, (1-fraction2.y) * screenH);
+
   return true;
 }
