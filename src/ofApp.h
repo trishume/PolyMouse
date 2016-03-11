@@ -53,4 +53,5 @@ class ofApp : public ofBaseApp{
 		mouseEventSource mouseSrc;
 
 		bool mousing;
+		bool enableSounds;
 };

@@ -30,7 +30,7 @@ void pupilGazeInput::update() {
     ofBuffer data;
     subscriber.getNextMessage(data);
 
-    cout << "received data: " << data << endl;
+    // cout << "received data: " << data << endl;
     string msg = data.getText();
     if(msg == "gaze_positions") {
       triggered = true;

@@ -37,6 +37,7 @@ void ofApp::setup(){
   detector.setup(this);
 
   mousing = false;
+  enableSounds = true;
 }
 
 //--------------------------------------------------------------
@@ -44,17 +45,19 @@ void ofApp::update(){
   pointer->update();
   if(ltrInp.userEngaged && mousing) {
     moveMouseTo(mouseSrc, pointer->val);
-    if(detector.shouldMouseDown()) {
-      mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseDown, pointer->val);
-    }
-    if(detector.shouldMouseUp()) {
-      mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseUp, pointer->val);
-    }
-    if(detector.scrollDown) {
-      emitScrollEvent(mouseSrc, -20);
-    }
-    if(detector.scrollUp) {
-      emitScrollEvent(mouseSrc, 20);
+    if(enableSounds){
+      if(detector.shouldMouseDown()) {
+        mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseDown, pointer->val);
+      }
+      if(detector.shouldMouseUp()) {
+        mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseUp, pointer->val);
+      }
+      if(detector.scrollDown) {
+        emitScrollEvent(mouseSrc, -20);
+      }
+      if(detector.scrollUp) {
+        emitScrollEvent(mouseSrc, 20);
+      }
     }
   }
 }
@@ -66,6 +69,9 @@ void ofApp::draw(){
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
   if(!ltrInp.userEngaged) {
     ofDrawBitmapString("clicking disabled", 10, 45);
+  }
+  if(!enableSounds) {
+    ofDrawBitmapString("sounds disabled", 10, 85);
   }
 
   detector.draw();
@@ -87,6 +93,7 @@ void ofApp::audioIn(float * input, int bufferSize, int nChannels) {
 void ofApp::keyPressed(int key){
   if(key == 'f') ofToggleFullscreen();
   if(key == 'm') mousing = !mousing;
+  if(key == 's') enableSounds = !enableSounds;
 
   if(key == 'r') {
     cout << "Rake cursor pipeline activated" << endl;
