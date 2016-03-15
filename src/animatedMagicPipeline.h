@@ -34,4 +34,7 @@ private:
 
   float calcJumpRadius() const;
   bool lookingFarAway() const;
+
+  ofVec2f screenSize;
+  ofVec2f confineToScreen(ofVec2f pt);
 };

@@ -3,6 +3,7 @@
 (Currently WIP)
 
 PolyMouse is a fusion of gaze tracking and head tracking to achieve hands-free pointing. It aims to be competitive in both speed and accuracy with a traditional mouse.
+It is a product of my research at the [University of Waterloo HCI lab](http://hci.cs.uwaterloo.ca/).
 
 It does this by using eye gaze to quickly determine an imprecise area of interest and then uses small head movements to refine the position of the cursor onto a small target.
 

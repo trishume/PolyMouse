@@ -18,13 +18,6 @@ static const float kThrowThreshSpeed = 0.001;
 // pixels per second
 static const float kThrowSpeed = 8000;
 
-static ofVec2f confineToScreen(ofVec2f pt) {
-  ofVec2f size = ofGetWindowPtr()->getScreenSize();
-  pt.x = std::max(0.0f, std::min(size.x, pt.x));
-  pt.y = std::max(0.0f, std::min(size.y, pt.y));
-  return pt;
-}
-
 animatedMagicPipeline::animatedMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
   : rawGaze(gaze), headInp(head, "animated"), speedExpandFactor(kSpeedExpandFactor),
   gazeInp(gaze, "animated"), minJump(kAnimatedMagicMinimumJump),
@@ -40,6 +33,8 @@ void animatedMagicPipeline::setup() {
   RUI_SHARE_PARAM(headSmoothingFactor, 0, 1);
   RUI_SHARE_PARAM(throwThreshSpeed, 0, 0.01);
   RUI_SHARE_PARAM(throwSpeed, 0, 50000);
+
+  screenSize = ofGetWindowPtr()->getScreenSize();
 }
 
 void animatedMagicPipeline::update() {
@@ -92,4 +87,10 @@ bool animatedMagicPipeline::lookingFarAway() const {
   float smallJump = jumpRadius*kSmallJumpFactor;
   return val.distance(gazeInp.val) > jumpRadius &&
      lastJumpDestination.distance(gazeInp.val) > smallJump;
+}
+
+ofVec2f animatedMagicPipeline::confineToScreen(ofVec2f pt) {
+  pt.x = std::max(0.0f, std::min(screenSize.x, pt.x));
+  pt.y = std::max(0.0f, std::min(screenSize.y, pt.y));
+  return pt;
 }

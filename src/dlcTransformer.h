@@ -32,4 +32,7 @@ private:
 
   std::vector<ofVec2f> offsets;
   std::vector<bool> initialized;
+
+  int screenW;
+  int screenH;
 };

@@ -40,6 +40,8 @@ dlcTransformer::~dlcTransformer() {
 
 void dlcTransformer::setup() {
   mon = addMouseMonitor([this](ofVec2f pt) {this->newPoint(pt);});
+  screenW = ofGetScreenWidth();
+  screenH = ofGetScreenHeight();
   cout << "Initialized DLC transformer" << endl;
 }
 
@@ -47,7 +49,7 @@ void dlcTransformer::update() {
   inp->update();
   // cout << "Updating DLC transformer" << endl;
 
-  ofVec2f cellDim(ofGetScreenWidth() / kCellsX, ofGetScreenHeight() / kCellsY);
+  ofVec2f cellDim(screenW / kCellsX, screenH / kCellsY);
   float totalDistance = 0.0;
   for(unsigned x = 0; x < kCellsX; ++x) {
     for(unsigned y = 0; y < kCellsY; ++y) {
@@ -78,7 +80,7 @@ void dlcTransformer::update() {
 
 void dlcTransformer::draw() {
   ofSetColor(255,0,0,150);
-  ofVec2f cellDim(ofGetScreenWidth() / kCellsX, ofGetScreenHeight() / kCellsY);
+  ofVec2f cellDim(screenW / kCellsX, screenH / kCellsY);
   for(unsigned x = 0; x < kCellsX; ++x) {
     for(unsigned y = 0; y < kCellsY; ++y) {
       if(!initialized[x+y*kCellsX]) continue;
@@ -93,7 +95,7 @@ void dlcTransformer::draw() {
 
 void dlcTransformer::newPoint(ofVec2f pt) {
 
-  ofVec2f cellDim(ofGetScreenWidth() / kCellsX, ofGetScreenHeight() / kCellsY);
+  ofVec2f cellDim(screenW / kCellsX, screenH / kCellsY);
   int x = inp->val.x / cellDim.x;
   int y = inp->val.y / cellDim.y;
 
