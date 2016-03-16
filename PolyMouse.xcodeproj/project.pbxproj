@@ -62,6 +62,7 @@
 		6A3DBCB41C4D88010074E872 /* dlcTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */; };
 		6A61E6D91C90A650002851CE /* ofxJSONElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6CF1C90A650002851CE /* ofxJSONElement.cpp */; };
 		6A61E6DA1C90A650002851CE /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6D81C90A650002851CE /* jsoncpp.cpp */; };
+		6A61E6DD1C99CF91002851CE /* freezeTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6DB1C99CF91002851CE /* freezeTransformer.cpp */; };
 		6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3901C581FC100E19519 /* soundDetector.cpp */; };
 		6AA5740B1C692C83008A72F9 /* libvamp-hostsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
@@ -311,6 +312,8 @@
 		6A61E6D51C90A650002851CE /* json-forwards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "json-forwards.h"; sourceTree = "<group>"; };
 		6A61E6D61C90A650002851CE /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		6A61E6D81C90A650002851CE /* jsoncpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
+		6A61E6DB1C99CF91002851CE /* freezeTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = freezeTransformer.cpp; sourceTree = "<group>"; };
+		6A61E6DC1C99CF91002851CE /* freezeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freezeTransformer.h; sourceTree = "<group>"; };
 		6A9FF3901C581FC100E19519 /* soundDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundDetector.cpp; sourceTree = "<group>"; };
 		6A9FF3911C581FC100E19519 /* soundDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundDetector.h; sourceTree = "<group>"; };
 		6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libvamp-hostsdk.a"; path = "/usr/local/Cellar/vamp-plugin-sdk/2.6/lib/libvamp-hostsdk.a"; sourceTree = "<absolute>"; };
@@ -1019,6 +1022,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A61E6DB1C99CF91002851CE /* freezeTransformer.cpp */,
+				6A61E6DC1C99CF91002851CE /* freezeTransformer.h */,
 				6A9FF3901C581FC100E19519 /* soundDetector.cpp */,
 				6A9FF3911C581FC100E19519 /* soundDetector.h */,
 				6A3DBCB21C4D88010074E872 /* dlcTransformer.cpp */,
@@ -1196,6 +1201,7 @@
 				E7C7256FD8153AA30883A42F /* uriencode.cpp in Sources */,
 				6E7B1BECAEE71AA06C7AAF7A /* ofxTransparentWindow.cpp in Sources */,
 				1F3BDD0CBAB9D77C4E547B96 /* ofxTransparentWindowUtil.mm in Sources */,
+				6A61E6DD1C99CF91002851CE /* freezeTransformer.cpp in Sources */,
 				1D98B3DE08BCE404AFE5A6F1 /* ofxXmlSettings.cpp in Sources */,
 				36F6AEF0E5BC35C463B1DA79 /* tinyxml.cpp in Sources */,
 				06B1D3F8A5DE88E5851D8D3F /* tinyxmlerror.cpp in Sources */,

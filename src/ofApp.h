@@ -7,6 +7,7 @@
 #include "pupilGazeInput.h"
 #include "linuxtrackInput.h"
 #include "dlcTransformer.h"
+#include "freezeTransformer.h"
 #include "offsetPipeline.h"
 #include "liberalMagicPipeline.h"
 #include "animatedMagicPipeline.h"
@@ -47,11 +48,10 @@ class ofApp : public ofBaseApp{
 		animatedMagicPipeline animatedPipeline;
 		rakeCursorPipeline rakePipeline;
 		liberalMagicPipeline liberalPipeline;
-		inputProcess<ofVec2f> *pointer;
+		freezeTransformer pointer;
 
 		soundDetector detector;
 		mouseEventSource mouseSrc;
 
 		bool mousing;
-		bool enableSounds;
 };

@@ -25,7 +25,6 @@ void ofApp::setup(){
 
   RUI_SETUP();
 
-
   rawGazeInp.setup();
   gazeInp.setup();
   ltrInp.setup();
@@ -37,27 +36,24 @@ void ofApp::setup(){
   detector.setup(this);
 
   mousing = false;
-  enableSounds = true;
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-  pointer->update();
+  pointer.update();
   if(ltrInp.userEngaged && mousing) {
-    moveMouseTo(mouseSrc, pointer->val);
-    if(enableSounds){
-      if(detector.shouldMouseDown()) {
-        mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseDown, pointer->val);
-      }
-      if(detector.shouldMouseUp()) {
-        mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseUp, pointer->val);
-      }
-      if(detector.scrollDown) {
-        emitScrollEvent(mouseSrc, -20);
-      }
-      if(detector.scrollUp) {
-        emitScrollEvent(mouseSrc, 20);
-      }
+    moveMouseTo(mouseSrc, pointer.val);
+    if(detector.shouldMouseDown()) {
+      mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseDown, pointer.val);
+    }
+    if(detector.shouldMouseUp()) {
+      mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseUp, pointer.val);
+    }
+    if(detector.scrollDown) {
+      emitScrollEvent(mouseSrc, -20);
+    }
+    if(detector.scrollUp) {
+      emitScrollEvent(mouseSrc, 20);
     }
   }
 }
@@ -70,17 +66,20 @@ void ofApp::draw(){
   if(!ltrInp.userEngaged) {
     ofDrawBitmapString("clicking disabled", 10, 45);
   }
-  if(!enableSounds) {
+  if(!detector.enableSounds) {
     ofDrawBitmapString("sounds disabled", 10, 85);
+  }
+  if(detector.enableExtraSounds) {
+    ofDrawBitmapString("extra sounds enabled", 10, 105);
   }
 
   detector.draw();
 
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
-  if(pointer != &rakePipeline) gazeInp.draw();
-  pointer->draw();
-  if(!mousing) ofDrawCircle(pointer->val.x, pointer->val.y, 2);
+  if(pointer.inp != &rakePipeline) gazeInp.draw();
+  pointer.draw();
+  if(!mousing) ofDrawCircle(pointer.val.x, pointer.val.y, 2);
   ofPopMatrix();
 }
 
@@ -93,19 +92,20 @@ void ofApp::audioIn(float * input, int bufferSize, int nChannels) {
 void ofApp::keyPressed(int key){
   if(key == 'f') ofToggleFullscreen();
   if(key == 'm') mousing = !mousing;
-  if(key == 's') enableSounds = !enableSounds;
+  if(key == 's') detector.enableSounds = !detector.enableSounds;
+  if(key == 'e') detector.enableExtraSounds = !detector.enableExtraSounds;
 
   if(key == 'r') {
     cout << "Rake cursor pipeline activated" << endl;
-    pointer = &rakePipeline;
+    pointer.inp = &rakePipeline;
   }
   if(key == 'a') {
     cout << "Animated MAGIC pipeline activated" << endl;
-    pointer = &animatedPipeline;
+    pointer.inp = &animatedPipeline;
   }
   if(key == 'l') {
     cout << "Liberal MAGIC pipeline activated" << endl;
-    pointer = &liberalPipeline;
+    pointer.inp = &liberalPipeline;
   }
 }
 

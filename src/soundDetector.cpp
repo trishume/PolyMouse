@@ -60,6 +60,9 @@ void soundDetector::setup(ofBaseApp *base) {
   if (!scrollUpPlugin->initialise(1, kBufferSize, kBufferSize)) {
     cerr << "ERROR: Plugin scrolldown initialise failed." << endl;
   }
+
+  enableSounds = true;
+  enableExtraSounds = false;
   initialized = true;
 }
 
@@ -88,29 +91,35 @@ void soundDetector::draw() {
 }
 
 void soundDetector::audioIn(float * input, int bufferSize, int nChannels) {
-  if(!initialized) return;
+  if(!initialized || !enableSounds) return;
   RealTime rt = RealTime::frame2RealTime(frame * kBufferSize, kSampleRate);
 
-  Plugin::FeatureSet popFeatures = popPlugin->process(&input, rt);
   Plugin::FeatureSet tssFeatures = tssPlugin->process(&input, rt);
-  Plugin::FeatureSet scrollDownFeatures = scrollDownPlugin->process(&input, rt);
-  Plugin::FeatureSet scrollUpFeatures = scrollUpPlugin->process(&input, rt);
-  if(!popFeatures[kPopInstantOutput].empty()) {
-    doDown = true;
-    doUp = true;
-  }
   if(!tssFeatures[kTssDownOutput].empty()) {
     doDown = true;
   }
   if(!tssFeatures[kTssUpOutput].empty()) {
     doUp = true;
   }
+
+  // Past this point are non-essential noises
+  if(!enableExtraSounds) return;
+
+  Plugin::FeatureSet popFeatures = popPlugin->process(&input, rt);
+  if(!popFeatures[kPopInstantOutput].empty()) {
+    doDown = true;
+    doUp = true;
+  }
+
+  Plugin::FeatureSet scrollDownFeatures = scrollDownPlugin->process(&input, rt);
   if(!scrollDownFeatures[kScrollOnOutput].empty()) {
     scrollDown = true;
   }
   if(!scrollDownFeatures[kScrollOffOutput].empty()) {
     scrollDown = false;
   }
+
+  Plugin::FeatureSet scrollUpFeatures = scrollUpPlugin->process(&input, rt);
   if(!scrollUpFeatures[kScrollOnOutput].empty()) {
     scrollUp = true;
   }

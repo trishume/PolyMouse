@@ -23,6 +23,9 @@ public:
   bool scrollUp;
 
   void audioIn(float * input, int bufferSize, int nChannels);
+
+  bool enableSounds;
+  bool enableExtraSounds;
 private:
   ofSoundStream *soundStream;
   _VampHost::Vamp::Plugin *popPlugin;
