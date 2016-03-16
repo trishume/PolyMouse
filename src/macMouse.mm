@@ -54,6 +54,10 @@ void emitScrollEvent(mouseEventSource &src, int amount) {
   CFRelease(cgEvt);
 }
 
+bool isMouseDown() {
+  return [NSEvent pressedMouseButtons] != 0;
+}
+
 mouseMonitor addMouseMonitor(std::function<void(ofVec2f)> func) {
   // TODO: these monitors might not get released, not sure ARC can handle the (void*) casts
   id globalMon = [NSEvent addGlobalMonitorForEventsMatchingMask:NSLeftMouseDownMask

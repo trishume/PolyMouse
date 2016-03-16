@@ -6,6 +6,7 @@
 
 #include "inputProcess.h"
 #include "ofVec2f.h"
+#include <cstdint>
 
 class freezeTransformer : public inputProcess<ofVec2f> {
 public:
@@ -15,4 +16,7 @@ public:
   void draw();
 
   inputProcess<ofVec2f> *inp;
+private:
+  bool mouseWasUpLastFrame;
+  uint64_t lastMouseDownTime;
 };

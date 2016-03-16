@@ -26,6 +26,7 @@ struct mouseEventSource {
 void moveMouseTo(mouseEventSource &src, ofVec2f pt);
 void mouseEventAtPoint(mouseEventSource &src, mouseButtonType btn, mouseEventType evt, ofVec2f pt);
 void emitScrollEvent(mouseEventSource &src, int amount);
+bool isMouseDown();
 
 struct mouseMonitor {
   mouseMonitor() : globalMonitor(0), localMonitor(0) {}
