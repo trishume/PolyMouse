@@ -30,16 +30,16 @@ void linuxtrackInput::update() {
     return;
   }
 
-  val.x = full_pose.raw_yaw * -1;
-  val.y = full_pose.raw_pitch * -1;
+  ofVec2f orientation(full_pose.raw_yaw * -1, full_pose.raw_pitch * -1);
+  val = orientation - last;
   // cout << "head pose: " << val << endl;
 
-  if(val == last) {
+  if(orientation == last) {
     countNoChange++;
   } else {
     countNoChange = 0;
   }
 
-  userEngaged = (countNoChange < 30 && abs(val.x) < 35.0);
-  last = val;
+  userEngaged = (countNoChange < 30 && abs(orientation.x) < 35.0);
+  last = orientation;
 }

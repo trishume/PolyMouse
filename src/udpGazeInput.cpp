@@ -39,5 +39,14 @@ bool udpGazeInput::parsePacket(const string &s) {
     val = ofVec2f(coords[0].asFloat(), coords[1].asFloat());
   }
 
+  if(json.isMember("leftEye")) {
+    auto coords = json["leftEye"];
+    leftEye = ofVec3f(coords[0].asFloat(), coords[1].asFloat(), coords[2].asFloat());
+  }
+  if(json.isMember("rightEye")) {
+    auto coords = json["rightEye"];
+    rightEye = ofVec3f(coords[0].asFloat(), coords[1].asFloat(), coords[2].asFloat());
+  }
+
   return true;
 }

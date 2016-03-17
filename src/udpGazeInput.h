@@ -5,6 +5,7 @@
 #pragma once
 
 #include "inputProcess.h"
+#include "ofVec3f.h"
 #include "ofVec2f.h"
 #include "ofxUDPManager.h"
 
@@ -15,6 +16,9 @@ public:
   udpGazeInput();
   void setup();
   void update();
+
+  ofVec3f leftEye;
+  ofVec3f rightEye;
 private:
   bool parsePacket(const string &s);
   ofxUDPManager udpConn;

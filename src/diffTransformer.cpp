@@ -24,9 +24,8 @@ void diffTransformer::setup() {
 }
 
 void diffTransformer::update() {
-  ofVec2f prevVal = inp->val;
   inp->update();
-  ofVec2f diff = inp->val - prevVal;
+  ofVec2f diff = inp->val;
 
   float dt = ofGetLastFrameTime();
   ofVec2f vInf = ratio*(vMax - vMin) + vMin;
