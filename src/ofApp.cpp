@@ -11,6 +11,7 @@ ofApp::ofApp() : gazeInp(&rawGazeInp),
   animatedPipeline(&gazeInp, &ltrInp),
   rakePipeline(&gazeInp, &ltrInp),
   liberalPipeline(&gazeInp, &ltrInp),
+  offPipeline(&gazeInp, &ltrInp),
   pointer(&animatedPipeline), detector() { }
 
 //--------------------------------------------------------------
@@ -32,6 +33,7 @@ void ofApp::setup(){
   animatedPipeline.setup();
   rakePipeline.setup();
   liberalPipeline.setup();
+  offPipeline.setup();
 
   detector.setup(this);
 
@@ -106,6 +108,10 @@ void ofApp::keyPressed(int key){
   if(key == 'l') {
     cout << "Liberal MAGIC pipeline activated" << endl;
     pointer.inp = &liberalPipeline;
+  }
+  if(key == 'o') {
+    cout << "Offset pipeline activated" << endl;
+    pointer.inp = &offPipeline;
   }
 }
 

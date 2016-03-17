@@ -11,7 +11,6 @@ offsetTransformer::offsetTransformer(inputProcess<ofVec2f> *inp, std::string nam
   : inp(inp), name(name), scale(20.0) {}
 
 void offsetTransformer::setup() {
-  inp->setup();
   recenter();
 
   RUI_NEW_GROUP(name);
@@ -24,7 +23,7 @@ void offsetTransformer::update() {
   inp->update();
   ofVec2f offset = inp->val - center;
   val = offset * scale;
-  cout << "offset: " << val << endl;
+  // cout << "offset: " << val << endl;
 }
 
 void offsetTransformer::recenter() {

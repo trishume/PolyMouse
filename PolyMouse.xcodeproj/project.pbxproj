@@ -63,6 +63,11 @@
 		6A61E6D91C90A650002851CE /* ofxJSONElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6CF1C90A650002851CE /* ofxJSONElement.cpp */; };
 		6A61E6DA1C90A650002851CE /* jsoncpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6D81C90A650002851CE /* jsoncpp.cpp */; };
 		6A61E6DD1C99CF91002851CE /* freezeTransformer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6DB1C99CF91002851CE /* freezeTransformer.cpp */; };
+		6A61E6EA1C9B3A1D002851CE /* ofxTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6E21C9B3A1D002851CE /* ofxTCPClient.cpp */; };
+		6A61E6EB1C9B3A1D002851CE /* ofxTCPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6E41C9B3A1D002851CE /* ofxTCPManager.cpp */; };
+		6A61E6EC1C9B3A1D002851CE /* ofxTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6E61C9B3A1D002851CE /* ofxTCPServer.cpp */; };
+		6A61E6ED1C9B3A1D002851CE /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6E81C9B3A1D002851CE /* ofxUDPManager.cpp */; };
+		6A61E6F01C9B3B88002851CE /* udpGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6EE1C9B3B88002851CE /* udpGazeInput.cpp */; };
 		6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3901C581FC100E19519 /* soundDetector.cpp */; };
 		6AA5740B1C692C83008A72F9 /* libvamp-hostsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
@@ -314,6 +319,18 @@
 		6A61E6D81C90A650002851CE /* jsoncpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jsoncpp.cpp; sourceTree = "<group>"; };
 		6A61E6DB1C99CF91002851CE /* freezeTransformer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = freezeTransformer.cpp; sourceTree = "<group>"; };
 		6A61E6DC1C99CF91002851CE /* freezeTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = freezeTransformer.h; sourceTree = "<group>"; };
+		6A61E6E01C9B3A1D002851CE /* ofxNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxNetwork.h; sourceTree = "<group>"; };
+		6A61E6E11C9B3A1D002851CE /* ofxNetworkUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxNetworkUtils.h; sourceTree = "<group>"; };
+		6A61E6E21C9B3A1D002851CE /* ofxTCPClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTCPClient.cpp; sourceTree = "<group>"; };
+		6A61E6E31C9B3A1D002851CE /* ofxTCPClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTCPClient.h; sourceTree = "<group>"; };
+		6A61E6E41C9B3A1D002851CE /* ofxTCPManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTCPManager.cpp; sourceTree = "<group>"; };
+		6A61E6E51C9B3A1D002851CE /* ofxTCPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTCPManager.h; sourceTree = "<group>"; };
+		6A61E6E61C9B3A1D002851CE /* ofxTCPServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTCPServer.cpp; sourceTree = "<group>"; };
+		6A61E6E71C9B3A1D002851CE /* ofxTCPServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxTCPServer.h; sourceTree = "<group>"; };
+		6A61E6E81C9B3A1D002851CE /* ofxUDPManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxUDPManager.cpp; sourceTree = "<group>"; };
+		6A61E6E91C9B3A1D002851CE /* ofxUDPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxUDPManager.h; sourceTree = "<group>"; };
+		6A61E6EE1C9B3B88002851CE /* udpGazeInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = udpGazeInput.cpp; sourceTree = "<group>"; };
+		6A61E6EF1C9B3B88002851CE /* udpGazeInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = udpGazeInput.h; sourceTree = "<group>"; };
 		6A9FF3901C581FC100E19519 /* soundDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundDetector.cpp; sourceTree = "<group>"; };
 		6A9FF3911C581FC100E19519 /* soundDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundDetector.h; sourceTree = "<group>"; };
 		6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libvamp-hostsdk.a"; path = "/usr/local/Cellar/vamp-plugin-sdk/2.6/lib/libvamp-hostsdk.a"; sourceTree = "<absolute>"; };
@@ -643,6 +660,32 @@
 			path = src;
 			sourceTree = "<group>";
 		};
+		6A61E6DE1C9B3A1D002851CE /* ofxNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6DF1C9B3A1D002851CE /* src */,
+			);
+			name = ofxNetwork;
+			sourceTree = "<group>";
+		};
+		6A61E6DF1C9B3A1D002851CE /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6A61E6E01C9B3A1D002851CE /* ofxNetwork.h */,
+				6A61E6E11C9B3A1D002851CE /* ofxNetworkUtils.h */,
+				6A61E6E21C9B3A1D002851CE /* ofxTCPClient.cpp */,
+				6A61E6E31C9B3A1D002851CE /* ofxTCPClient.h */,
+				6A61E6E41C9B3A1D002851CE /* ofxTCPManager.cpp */,
+				6A61E6E51C9B3A1D002851CE /* ofxTCPManager.h */,
+				6A61E6E61C9B3A1D002851CE /* ofxTCPServer.cpp */,
+				6A61E6E71C9B3A1D002851CE /* ofxTCPServer.h */,
+				6A61E6E81C9B3A1D002851CE /* ofxUDPManager.cpp */,
+				6A61E6E91C9B3A1D002851CE /* ofxUDPManager.h */,
+			);
+			name = src;
+			path = ../../../../Documents/of_v0.9.0_osx_release/addons/ofxNetwork/src;
+			sourceTree = "<group>";
+		};
 		6E54289412D2D94F45A05113 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -909,6 +952,7 @@
 				1F4FB5C423662B96ADFDCC0B /* ofxXmlSettings */,
 				BF8F87DF3E45EDAA7FBD88D2 /* ofxZmq */,
 				6A61E6CC1C90A650002851CE /* ofxJSON */,
+				6A61E6DE1C9B3A1D002851CE /* ofxNetwork */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -1022,6 +1066,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A61E6EE1C9B3B88002851CE /* udpGazeInput.cpp */,
+				6A61E6EF1C9B3B88002851CE /* udpGazeInput.h */,
 				6A61E6DB1C99CF91002851CE /* freezeTransformer.cpp */,
 				6A61E6DC1C99CF91002851CE /* freezeTransformer.h */,
 				6A9FF3901C581FC100E19519 /* soundDetector.cpp */,
@@ -1196,8 +1242,10 @@
 				192E0AA6E6ACCFF0B3ED1D93 /* ofxRemoteUIClient.cpp in Sources */,
 				70E4DA9B6955D4C6CE46E079 /* ofxRemoteUINeigbors.cpp in Sources */,
 				796B9896486F8C75C539E3AD /* ofxRemoteUIofParamaterSync.cpp in Sources */,
+				6A61E6EB1C9B3A1D002851CE /* ofxTCPManager.cpp in Sources */,
 				6A3DBCB41C4D88010074E872 /* dlcTransformer.cpp in Sources */,
 				CDA374B404DC85E233A1D736 /* ofxRemoteUIServer.cpp in Sources */,
+				6A61E6EA1C9B3A1D002851CE /* ofxTCPClient.cpp in Sources */,
 				E7C7256FD8153AA30883A42F /* uriencode.cpp in Sources */,
 				6E7B1BECAEE71AA06C7AAF7A /* ofxTransparentWindow.cpp in Sources */,
 				1F3BDD0CBAB9D77C4E547B96 /* ofxTransparentWindowUtil.mm in Sources */,
@@ -1225,6 +1273,7 @@
 				C7CFF688F683490A3A8E854D /* epoll.cpp in Sources */,
 				CBA3A38D3A7B51DEFB49FD4F /* err.cpp in Sources */,
 				7C04EAF502EB1A632F321EA0 /* fq.cpp in Sources */,
+				6A61E6EC1C9B3A1D002851CE /* ofxTCPServer.cpp in Sources */,
 				15B293CC3BBEBE5BD6D5ED6D /* gssapi_client.cpp in Sources */,
 				54387C1BE9A8F12206CF6F63 /* gssapi_mechanism_base.cpp in Sources */,
 				A27108EB8BCB5A226203B974 /* gssapi_server.cpp in Sources */,
@@ -1235,6 +1284,7 @@
 				B802F971A447E5E69969FC27 /* ipc_connecter.cpp in Sources */,
 				D802E5EFD1609FC03FB84E4C /* ipc_listener.cpp in Sources */,
 				B3411871BC4E8903DC2D38DC /* kqueue.cpp in Sources */,
+				6A61E6ED1C9B3A1D002851CE /* ofxUDPManager.cpp in Sources */,
 				E8087BD631D74F257990191C /* lb.cpp in Sources */,
 				67FCDA2FA543F099EBF94374 /* mailbox.cpp in Sources */,
 				4B4E4BA2BF5CC457F19F8737 /* mechanism.cpp in Sources */,
@@ -1283,6 +1333,7 @@
 				6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */,
 				1075E64930209E3ED02BAB0B /* sub.cpp in Sources */,
 				2411DEAE75CFAAD4454073CC /* tcp.cpp in Sources */,
+				6A61E6F01C9B3B88002851CE /* udpGazeInput.cpp in Sources */,
 				C77FF2DC95589E93795AB506 /* tcp_address.cpp in Sources */,
 				12C963BED94A9101D851F9E3 /* tcp_connecter.cpp in Sources */,
 				4FB62E2900CF79856FC48AF1 /* tcp_listener.cpp in Sources */,

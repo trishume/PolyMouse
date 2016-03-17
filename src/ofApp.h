@@ -5,6 +5,7 @@
 
 #include "inputProcess.h"
 #include "pupilGazeInput.h"
+#include "udpGazeInput.h"
 #include "linuxtrackInput.h"
 #include "dlcTransformer.h"
 #include "freezeTransformer.h"
@@ -41,13 +42,14 @@ class ofApp : public ofBaseApp{
 
 		ofxTransparentWindow transparent;
 
-		pupilGazeInput rawGazeInp;
+		udpGazeInput rawGazeInp;
 		dlcTransformer gazeInp;
 		linuxtrackInput ltrInp;
 
 		animatedMagicPipeline animatedPipeline;
 		rakeCursorPipeline rakePipeline;
 		liberalMagicPipeline liberalPipeline;
+		offsetPipeline offPipeline;
 		freezeTransformer pointer;
 
 		soundDetector detector;
