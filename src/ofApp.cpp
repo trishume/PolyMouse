@@ -8,9 +8,11 @@ using namespace std;
 static const bool kOverlayUI = false;
 
 ofApp::ofApp() : gazeInp(&rawGazeInp),
-  animatedPipeline(&gazeInp, &ltrInp),
-  rakePipeline(&gazeInp, &ltrInp),
-  liberalPipeline(&gazeInp, &ltrInp),
+  // rawHeadInp(rawGazeInp),
+  animatedPipeline(&gazeInp, &rawHeadInp),
+  rakePipeline(&gazeInp, &rawHeadInp),
+  liberalPipeline(&gazeInp, &rawHeadInp),
+  offPipeline(&gazeInp, &rawHeadInp),
   pointer(&animatedPipeline), detector() { }
 
 //--------------------------------------------------------------
@@ -27,11 +29,12 @@ void ofApp::setup(){
 
   rawGazeInp.setup();
   gazeInp.setup();
-  ltrInp.setup();
+  rawHeadInp.setup();
 
   animatedPipeline.setup();
   rakePipeline.setup();
   liberalPipeline.setup();
+  offPipeline.setup();
 
   detector.setup(this);
 
@@ -41,7 +44,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
   pointer.update();
-  if(ltrInp.userEngaged && mousing) {
+  if(rawHeadInp.userEngaged && mousing) {
     moveMouseTo(mouseSrc, pointer.val);
     if(detector.shouldMouseDown()) {
       mouseEventAtPoint(mouseSrc, kMouseButtonLeft, kEventMouseDown, pointer.val);
@@ -63,7 +66,7 @@ void ofApp::draw(){
   if(kOverlayUI) transparent.update();
   ofSetColor(255, 0, 255);
   ofDrawBitmapString(ofToString(ofGetFrameRate())+"fps", 10, 25);
-  if(!ltrInp.userEngaged) {
+  if(!rawHeadInp.userEngaged) {
     ofDrawBitmapString("clicking disabled", 10, 45);
   }
   if(!detector.enableSounds) {
@@ -74,6 +77,7 @@ void ofApp::draw(){
   }
 
   detector.draw();
+  // rawHeadInp.draw();
 
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
@@ -106,6 +110,10 @@ void ofApp::keyPressed(int key){
   if(key == 'l') {
     cout << "Liberal MAGIC pipeline activated" << endl;
     pointer.inp = &liberalPipeline;
+  }
+  if(key == 'o') {
+    cout << "Offset pipeline activated" << endl;
+    pointer.inp = &offPipeline;
   }
 }
 

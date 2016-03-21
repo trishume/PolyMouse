@@ -5,7 +5,10 @@
 
 #include "inputProcess.h"
 #include "pupilGazeInput.h"
+#include "udpGazeInput.h"
 #include "linuxtrackInput.h"
+#include "udpHeadInput.h"
+#include "lookMouseInput.h"
 #include "dlcTransformer.h"
 #include "freezeTransformer.h"
 #include "offsetPipeline.h"
@@ -42,12 +45,17 @@ class ofApp : public ofBaseApp{
 		ofxTransparentWindow transparent;
 
 		pupilGazeInput rawGazeInp;
+		// udpGazeInput rawGazeInp;
 		dlcTransformer gazeInp;
-		linuxtrackInput ltrInp;
+
+		linuxtrackInput rawHeadInp;
+		// udpHeadInput rawHeadInp;
+		// lookMouseInput rawHeadInp;
 
 		animatedMagicPipeline animatedPipeline;
 		rakeCursorPipeline rakePipeline;
 		liberalMagicPipeline liberalPipeline;
+		offsetPipeline offPipeline;
 		freezeTransformer pointer;
 
 		soundDetector detector;

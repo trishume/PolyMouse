@@ -9,7 +9,6 @@ offsetPipeline::offsetPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f
   : gazeInp(gaze), headInp(head, "head-based offset") {}
 
 void offsetPipeline::setup() {
-  gazeInp->setup();
   headInp.setup();
 }
 
