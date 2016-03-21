@@ -44,11 +44,13 @@ class ofApp : public ofBaseApp{
 
 		ofxTransparentWindow transparent;
 
-		udpGazeInput rawGazeInp;
+		pupilGazeInput rawGazeInp;
+		// udpGazeInput rawGazeInp;
 		dlcTransformer gazeInp;
-		// linuxtrackInput rawHeadInp;
+
+		linuxtrackInput rawHeadInp;
 		// udpHeadInput rawHeadInp;
-		lookMouseInput rawHeadInp;
+		// lookMouseInput rawHeadInp;
 
 		animatedMagicPipeline animatedPipeline;
 		rakeCursorPipeline rakePipeline;
