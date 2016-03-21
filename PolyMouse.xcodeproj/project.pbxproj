@@ -69,6 +69,7 @@
 		6A61E6ED1C9B3A1D002851CE /* ofxUDPManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6E81C9B3A1D002851CE /* ofxUDPManager.cpp */; };
 		6A61E6F01C9B3B88002851CE /* udpGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6EE1C9B3B88002851CE /* udpGazeInput.cpp */; };
 		6A61E6F31C9B4A6C002851CE /* udpHeadInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E6F11C9B4A6C002851CE /* udpHeadInput.cpp */; };
+		6A7736BA1CA0499600C64723 /* lookMouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7736B81CA0499600C64723 /* lookMouseInput.cpp */; };
 		6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3901C581FC100E19519 /* soundDetector.cpp */; };
 		6AA5740B1C692C83008A72F9 /* libvamp-hostsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
@@ -334,6 +335,8 @@
 		6A61E6EF1C9B3B88002851CE /* udpGazeInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = udpGazeInput.h; sourceTree = "<group>"; };
 		6A61E6F11C9B4A6C002851CE /* udpHeadInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = udpHeadInput.cpp; sourceTree = "<group>"; };
 		6A61E6F21C9B4A6C002851CE /* udpHeadInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = udpHeadInput.h; sourceTree = "<group>"; };
+		6A7736B81CA0499600C64723 /* lookMouseInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lookMouseInput.cpp; sourceTree = "<group>"; };
+		6A7736B91CA0499600C64723 /* lookMouseInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lookMouseInput.h; sourceTree = "<group>"; };
 		6A9FF3901C581FC100E19519 /* soundDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundDetector.cpp; sourceTree = "<group>"; };
 		6A9FF3911C581FC100E19519 /* soundDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundDetector.h; sourceTree = "<group>"; };
 		6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libvamp-hostsdk.a"; path = "/usr/local/Cellar/vamp-plugin-sdk/2.6/lib/libvamp-hostsdk.a"; sourceTree = "<absolute>"; };
@@ -1069,6 +1072,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				6A7736B81CA0499600C64723 /* lookMouseInput.cpp */,
+				6A7736B91CA0499600C64723 /* lookMouseInput.h */,
 				6A61E6F11C9B4A6C002851CE /* udpHeadInput.cpp */,
 				6A61E6F21C9B4A6C002851CE /* udpHeadInput.h */,
 				6A61E6EE1C9B3B88002851CE /* udpGazeInput.cpp */,
@@ -1339,6 +1344,7 @@
 				6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */,
 				1075E64930209E3ED02BAB0B /* sub.cpp in Sources */,
 				2411DEAE75CFAAD4454073CC /* tcp.cpp in Sources */,
+				6A7736BA1CA0499600C64723 /* lookMouseInput.cpp in Sources */,
 				6A61E6F01C9B3B88002851CE /* udpGazeInput.cpp in Sources */,
 				C77FF2DC95589E93795AB506 /* tcp_address.cpp in Sources */,
 				12C963BED94A9101D851F9E3 /* tcp_connecter.cpp in Sources */,

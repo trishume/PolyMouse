@@ -8,6 +8,7 @@
 #include "udpGazeInput.h"
 #include "linuxtrackInput.h"
 #include "udpHeadInput.h"
+#include "lookMouseInput.h"
 #include "dlcTransformer.h"
 #include "freezeTransformer.h"
 #include "offsetPipeline.h"
@@ -45,8 +46,9 @@ class ofApp : public ofBaseApp{
 
 		udpGazeInput rawGazeInp;
 		dlcTransformer gazeInp;
-		linuxtrackInput rawHeadInp;
+		// linuxtrackInput rawHeadInp;
 		// udpHeadInput rawHeadInp;
+		lookMouseInput rawHeadInp;
 
 		animatedMagicPipeline animatedPipeline;
 		rakeCursorPipeline rakePipeline;
