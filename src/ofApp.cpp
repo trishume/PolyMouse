@@ -7,8 +7,8 @@ using namespace std;
 
 static const bool kOverlayUI = false;
 
-ofApp::ofApp() : gazeInp(&rawGazeInp),
-  // rawHeadInp(rawGazeInp),
+ofApp::ofApp() :
+  // rawHeadInp(gazeInp),
   animatedPipeline(&gazeInp, &rawHeadInp),
   rakePipeline(&gazeInp, &rawHeadInp),
   liberalPipeline(&gazeInp, &rawHeadInp),
@@ -27,7 +27,6 @@ void ofApp::setup(){
 
   RUI_SETUP();
 
-  rawGazeInp.setup();
   gazeInp.setup();
   rawHeadInp.setup();
 
@@ -81,7 +80,6 @@ void ofApp::draw(){
 
   ofPushMatrix();
   ofTranslate(-ofGetWindowPositionX(), -ofGetWindowPositionY());
-  if(pointer.inp != &rakePipeline) gazeInp.draw();
   pointer.draw();
   if(!mousing) ofDrawCircle(pointer.val.x, pointer.val.y, 2);
   ofPopMatrix();

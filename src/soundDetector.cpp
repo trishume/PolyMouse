@@ -61,7 +61,7 @@ void soundDetector::setup(ofBaseApp *base) {
     cerr << "ERROR: Plugin scrolldown initialise failed." << endl;
   }
 
-  enableSounds = true;
+  enableSounds = false;
   enableExtraSounds = false;
   initialized = true;
 }

@@ -19,12 +19,13 @@ static const float kThrowThreshSpeed = 0.001;
 static const float kThrowSpeed = 8000;
 
 animatedMagicPipeline::animatedMagicPipeline(inputProcess<ofVec2f> *gaze, inputProcess<ofVec2f> *head)
-  : rawGaze(gaze), headInp(head, "animated"), speedExpandFactor(kSpeedExpandFactor),
-  gazeInp(gaze, "animated"), minJump(kAnimatedMagicMinimumJump),
+  : rawGaze(gaze), dlcGaze(gaze), headInp(head, "animated"), speedExpandFactor(kSpeedExpandFactor),
+  gazeInp(&dlcGaze, "animated"), minJump(kAnimatedMagicMinimumJump),
   smoothedHeadVel(0.0), headSmoothingFactor(kHeadSmoothingFactor),
   throwThreshSpeed(kThrowThreshSpeed), throwSpeed(kThrowSpeed) {}
 
 void animatedMagicPipeline::setup() {
+  dlcGaze.setup();
   gazeInp.setup();
   headInp.setup();
   RUI_NEW_GROUP("Animated MAGIC");
@@ -68,6 +69,7 @@ void animatedMagicPipeline::update() {
 }
 
 void animatedMagicPipeline::draw() {
+  dlcGaze.draw();
   gazeInp.draw();
 
   ofSetColor(255,0,255);

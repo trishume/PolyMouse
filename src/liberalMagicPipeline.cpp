@@ -34,9 +34,10 @@ void liberalMagicPipeline::update() {
   smoothedHeadVel = smoothedHeadVel*(1-headSmoothingFactor) +
                     headInp.rawVel.length()*headSmoothingFactor;
   float jumpRadius = calcJumpRadius();
-  float smallJump = jumpRadius*kSmallJumpFactor;
-  if(val.distance(gazeInp.val) > jumpRadius &&
-     lastJumpDestination.distance(gazeInp.val) > smallJump) {
+  // float smallJump = jumpRadius*kSmallJumpFactor;
+  if(val.distance(gazeInp.val) > jumpRadius
+    // && lastJumpDestination.distance(gazeInp.val) > smallJump
+     ) {
     val = gazeInp.val;
     lastJumpDestination = gazeInp.val;
   }
@@ -50,7 +51,7 @@ void liberalMagicPipeline::draw() {
   ofSetColor(255,0,255);
   ofNoFill();
   float jumpRadius = calcJumpRadius();
-  ofDrawCircle(lastJumpDestination.x, lastJumpDestination.y, jumpRadius*kSmallJumpFactor);
+  // ofDrawCircle(lastJumpDestination.x, lastJumpDestination.y, jumpRadius*kSmallJumpFactor);
   ofDrawCircle(val.x, val.y, jumpRadius);
   ofFill();
 }

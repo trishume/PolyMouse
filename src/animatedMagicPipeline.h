@@ -7,6 +7,7 @@
 #include "inputProcess.h"
 #include "diffTransformer.h"
 #include "fixationTransformer.h"
+#include "dlcTransformer.h"
 #include "ofVec2f.h"
 
 class animatedMagicPipeline : public inputProcess<ofVec2f> {
@@ -17,6 +18,7 @@ public:
   void draw(); // for debugging
 private:
   inputProcess<ofVec2f> *rawGaze;
+  dlcTransformer dlcGaze;
   fixationTransformer gazeInp;
   diffTransformer headInp;
 
