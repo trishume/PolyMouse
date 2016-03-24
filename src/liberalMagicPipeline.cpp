@@ -6,7 +6,7 @@
 #include "ofxRemoteUIServer.h"
 #include "ofGraphics.h"
 
-static const int kLiberalMagicMinimumJump = 100;
+static const int kLiberalMagicMinimumJump = 150;
 static const float kSpeedExpandFactor = 10000.0;
 static const float kSmallJumpFactor = 0.75;
 static const float kHeadSmoothingFactor = 0.05;
