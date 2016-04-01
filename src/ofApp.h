@@ -15,6 +15,7 @@
 #include "liberalMagicPipeline.h"
 #include "animatedMagicPipeline.h"
 #include "rakeCursorPipeline.h"
+#include "smartHeadInput.h"
 #include "macMouse.h"
 
 #include "soundDetector.h"
@@ -47,9 +48,10 @@ class ofApp : public ofBaseApp{
 		pupilGazeInput gazeInp;
 		// udpGazeInput gazeInp;
 
-		linuxtrackInput rawHeadInp;
+		// linuxtrackInput rawHeadInp;
 		// udpHeadInput rawHeadInp;
 		// lookMouseInput rawHeadInp;
+		smartHeadInput rawHeadInp;
 
 		animatedMagicPipeline animatedPipeline;
 		rakeCursorPipeline rakePipeline;
