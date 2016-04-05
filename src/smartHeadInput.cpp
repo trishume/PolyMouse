@@ -20,6 +20,7 @@ void smartHeadInput::setup() {
 }
 
 void smartHeadInput::update() {
+  val = ofVec2f(0,0);
   while (subscriber.hasWaitingMessage()) {
     ofBuffer data;
     subscriber.getNextMessage(data);
@@ -36,8 +37,8 @@ bool smartHeadInput::parsePacket(const string &s) {
 
   if(json.size() == 0) return false;
 
-  ofVec2f pos(json["x"].asFloat(), json["y"].asFloat());
-  val = (pos - last) * 0.2;
+  ofVec2f pos(json["fx"].asFloat(), json["fy"].asFloat());
+  val = (pos - last) * 0.30;
 
   if(pos == last) {
     countNoChange++;

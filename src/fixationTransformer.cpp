@@ -55,7 +55,8 @@ void fixationTransformer::update() {
 
   // update gaze point if it is fixated on something
   float maxDispersion = maxVelocity*minFixationSeconds;
-  if(dispersion < maxDispersion) {
+  // if(dispersion < maxDispersion) {
+  if(true) {
     val = inp->val;
   } else {
     // cout << "Filtered out saccade." << endl;

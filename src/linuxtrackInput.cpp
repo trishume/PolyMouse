@@ -19,6 +19,7 @@ void linuxtrackInput::setup() {
 }
 
 void linuxtrackInput::update() {
+  val = ofVec2f(0,0);
   linuxtrack_pose_t full_pose;
   float blobs[3*3];
   int blobs_read;

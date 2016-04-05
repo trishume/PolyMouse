@@ -9,10 +9,10 @@
 #include <iostream>
 #include <algorithm>
 
-static const int kAnimatedMagicMinimumJump = 100;
+static const int kAnimatedMagicMinimumJump = 200;
 static const float kSpeedExpandFactor = 10000.0;
 static const float kSmallJumpFactor = 0.75;
-static const float kHeadSmoothingFactor = 0.1;
+static const float kHeadSmoothingFactor = 0.3;
 // TODO should be radians per second but I don't think it is
 static const float kThrowThreshSpeed = 0.001;
 // pixels per second

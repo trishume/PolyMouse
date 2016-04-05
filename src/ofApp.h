@@ -45,8 +45,8 @@ class ofApp : public ofBaseApp{
 
 		ofxTransparentWindow transparent;
 
-		pupilGazeInput gazeInp;
-		// udpGazeInput gazeInp;
+		// pupilGazeInput gazeInp;
+		udpGazeInput gazeInp;
 
 		// linuxtrackInput rawHeadInp;
 		// udpHeadInput rawHeadInp;
