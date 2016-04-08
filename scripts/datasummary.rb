@@ -1,12 +1,14 @@
 require "csv"
+thresh = ARGV[0] ? ARGV[0].to_f : 0.0
 
 data = []
 Dir["FittsStudy/FittsTaskTwo-P*-C*-B*-sd2.csv"].each do |f|
   _, p, c, b = /FittsTaskTwo-P(.*)-C(.*)-B(.*)-sd2\.csv/.match(f).to_a
   table = CSV.read(f, headers: true)
-  tps = table["TP(bps)"].map { |e| e.to_f }
+  tps_raw = table["TP(bps)"].map { |e| e.to_f }
+  tps = tps_raw.select {|tp| tp > thresh }
   avg_tp = (tps.inject(:+) / tps.size).round(3) unless tps.empty?
-  data << [c, p, b, avg_tp]
+  data << [c, p, b, avg_tp, tps_raw.length != tps.length]
 end
 
 data.sort!
@@ -14,7 +16,7 @@ data.sort!
 last_c = nil
 last_p = nil
 participant_data = []
-data.each do |c, p, b, avg_tp|
+data.each do |c, p, b, avg_tp, did_drop|
   if last_p != p
     participant_avg = (participant_data.inject(0,:+) / participant_data.size).round(3) unless participant_data.empty?
     puts "   P#{last_p} average: #{participant_avg} bits/s"
@@ -23,7 +25,7 @@ data.each do |c, p, b, avg_tp|
   puts if last_c != c
   participant_data << avg_tp if avg_tp
 
-  puts "C#{c} P#{p} B#{b}: #{avg_tp} bits/s"
+  puts "C#{c} P#{p} B#{b}: #{avg_tp} bits/s #{did_drop ? '~' : ''}"
 
   last_c = c
   last_p = p
