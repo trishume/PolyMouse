@@ -7,6 +7,7 @@ Dir["FittsStudy/FittsTaskTwo-P*-C*-B*-sd2.csv"].each do |f|
   table = CSV.read(f, headers: true)
   tps_raw = table["TP(bps)"].map { |e| e.to_f }
   tps = tps_raw.select {|tp| tp > thresh }
+  # TODO: maybe discard sequences that were retried
   avg_tp = (tps.inject(:+) / tps.size).round(3) unless tps.empty?
   data << [c, p, b, avg_tp, tps_raw.length != tps.length]
 end
