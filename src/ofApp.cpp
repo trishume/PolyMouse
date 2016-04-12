@@ -96,6 +96,7 @@ void ofApp::keyPressed(int key){
   if(key == 'm') mousing = !mousing;
   if(key == 's') detector.enableSounds = !detector.enableSounds;
   if(key == 'e') detector.enableExtraSounds = !detector.enableExtraSounds;
+  if(key == 'q') ofExit(0);
 
   if(key == 'r') {
     cout << "Rake cursor pipeline activated" << endl;
