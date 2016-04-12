@@ -103,9 +103,11 @@ def plan_item_actions(item)
   when :setup
     [
       ["Start PolyMouse", -> {
+        log "Starting Polymouse"
         spawn("open /Users/tristan/Box/Dev/Projects/PolyMouse/bin/PolyMouseDebug.app")
       }],
       ["Start Pupil", -> {
+        log "Starting Pupil"
         Dir.chdir("/Users/tristan/misc/pupil/pupil_src/capture") { spawn("python main.py") }
       }],
     ]
@@ -120,11 +122,41 @@ def plan_item_actions(item)
   end
 end
 
+# http://stackoverflow.com/questions/858970/how-to-get-a-stopwatch-program-running
+def format_stopwatch(time)
+  h = sprintf('%02i', (time.to_i / 3600))
+  m = sprintf('%02i', ((time.to_i % 3600) / 60))
+  s = sprintf('%02i', (time.to_i % 60))
+  "#{h}:#{m}:#{s}"
+end
+
 def run_gui()
   plan = main_experiment_plan()
   log "Running GUI with plan: #{JSON.dump(plan)}"
 
   root = TkRoot.new { title "Experiment" }
+
+  start_time = Time.now
+  last_change_time = Time.now
+  timer_label = TkLabel.new(root) do
+     font TkFont.new('arial 20 bold')
+     pack { padx 15 ; pady 15; }
+  end
+  split_label = TkLabel.new(root) do
+     font TkFont.new('arial 15 bold')
+     foreground  "red"
+     pack { padx 15 ; pady 15; }
+  end
+  update_timer = -> (_) {
+    been_running = Time.now - start_time
+    timer_label.configure('text' => format_stopwatch(been_running))
+    since_last_section = Time.now - last_change_time
+    split_label.configure('text' => format_stopwatch(since_last_section))
+  }
+  timer = TkRTTimer.new(50, -1, update_timer)
+  timer.start
+  update_timer[0]
+
   list = TkListbox.new(root) do
     width 40
     height plan.length
@@ -139,7 +171,9 @@ def run_gui()
   cur_buttons = []
   cur_actions = []
   selected = -> {
+    last_change_time = Time.now
     cur_sel = list.curselection[0]
+    log "Selected #{cur_sel}: #{plan[cur_sel][:name]}"
     cur_actions = plan_item_actions(plan[cur_sel])
     cur_buttons.each {|b| b.destroy() }
     cur_buttons = []
