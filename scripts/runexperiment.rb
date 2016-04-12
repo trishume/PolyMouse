@@ -4,8 +4,8 @@ require "json"
 require "tk"
 
 CONDITIONS = [
-  "Trackpad",
   "Pure head tracking",
+  "Trackpad",
   "Liberal MAGIC",
   "Animated MAGIC",
   "PolyMouse including tss click"
@@ -22,6 +22,8 @@ LATIN_SQUARE = [
 TEMPLATE_CONFIG = IO.read("FittsTaskTwo-template.cfg")
 raise "Need PARTICIPANT number" unless ARGV[0]
 PARTICIPANT = ARGV[0].to_i
+raise "Need SESSION number" unless ARGV[1]
+SESSION = ARGV[1].to_i
 
 def log(msg)
   logline = "#{Time.now.to_s} / #{PARTICIPANT}: #{msg}"
@@ -59,7 +61,7 @@ def condition_test_plan(condition_code,num_blocks)
       condition_code: condition_code,
       name: "Set up #{CONDITIONS[condition_code-1]}"
     },
-    (1..BLOCKS_PER_CONDITION).map do |i|
+    (1..num_blocks).map do |i|
       {
         type: :fitts,
         condition_code: condition_code,
@@ -84,17 +86,26 @@ def main_experiment_plan()
       condition_test_plan(condition_code, BLOCKS_PER_CONDITION)
     end,
     condition_test_plan(5, BLOCKS_PER_CONDITION),
-    {
-      type: :done,
-      name: "Experiment Finished"
-    }
+    {type: :form, name: "Final questionnaire"},
+    {type: :done, name: "Experiment Finished"}
+  ].flatten
+end
+
+def practice_session_plan()
+  log "Practice session"
+  [
+    {type: :form, name: "Initial questionnaire"},
+    condition_test_plan(1, 2),
+    {type: :game, name: "Practice with game"},
+    condition_test_plan(1, 2),
+    {type: :done, name: "Experiment Finished"}
   ].flatten
 end
 
 def plan_item_actions(item)
   case item[:type]
   when :done
-    [["Quit", -> { log("Quitting"); exit(0) }]]
+    [["Quit", -> { exit(0) }]]
   when :fitts
     [["Start Applet", -> {
       setup_config(item[:condition_code], item[:block_num])
@@ -103,14 +114,16 @@ def plan_item_actions(item)
   when :setup
     [
       ["Start PolyMouse", -> {
-        log "Starting Polymouse"
         spawn("open /Users/tristan/Box/Dev/Projects/PolyMouse/bin/PolyMouseDebug.app")
       }],
       ["Start Pupil", -> {
-        log "Starting Pupil"
         Dir.chdir("/Users/tristan/misc/pupil/pupil_src/capture") { spawn("python main.py") }
       }],
     ]
+  when :game
+    [["Start FTL", -> {
+      spawn("open /Applications/FTL.app")
+    }]]
   when :finish
     [["Extra Block", -> {
       log "Extra block for C#{item[:condition_code]}"
@@ -130,8 +143,7 @@ def format_stopwatch(time)
   "#{h}:#{m}:#{s}"
 end
 
-def run_gui()
-  plan = main_experiment_plan()
+def run_gui(plan)
   log "Running GUI with plan: #{JSON.dump(plan)}"
 
   root = TkRoot.new { title "Experiment" }
@@ -181,7 +193,10 @@ def run_gui()
       cur_buttons << TkButton.new(root) do
         width 30
         text name
-        command l
+        command proc {
+          log "Running action '#{name}'"
+          l[]
+        }
         pack('fill' => 'x')
       end
     end
@@ -209,5 +224,9 @@ def run_gui()
 end
 
 log `sha1sum #{$0}`
-# run_experiment()
-run_gui()
+plan = if SESSION <= 1
+  practice_session_plan()
+else
+  main_experiment_plan()
+end
+run_gui(plan)
