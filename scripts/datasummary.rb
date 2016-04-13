@@ -1,8 +1,9 @@
 require "csv"
 thresh = ARGV[0] ? ARGV[0].to_f : 0.0
+folder = ARGV[1] ? ARGV[1] : "FittsStudy"
 
 data = []
-Dir["FittsStudy/FittsTaskTwo-P*-C*-B*-sd2.csv"].each do |f|
+Dir["#{folder}/FittsTaskTwo-P*-C*-B*-sd2.csv"].each do |f|
   _, p, c, b = /FittsTaskTwo-P(.*)-C(.*)-B(.*)-sd2\.csv/.match(f).to_a
   table = CSV.read(f, headers: true)
   tps_raw = table["TP(bps)"].map { |e| e.to_f }
@@ -18,7 +19,7 @@ last_c = nil
 last_p = nil
 participant_data = []
 data.each do |c, p, b, avg_tp, did_drop|
-  if last_p != p
+  if last_p != p && last_p
     participant_avg = (participant_data.inject(0,:+) / participant_data.size).round(3) unless participant_data.empty?
     puts "   P#{last_p} average: #{participant_avg} bits/s"
     participant_data = []

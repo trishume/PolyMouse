@@ -8,7 +8,9 @@ CONDITIONS = [
   "Trackpad",
   "Liberal MAGIC",
   "Animated MAGIC",
-  "PolyMouse including tss click"
+  "PolyMouse including tss click",
+  "Head practice 1",
+  "Head practice 2"
 ]
 
 BLOCKS_PER_CONDITION = 3
@@ -49,8 +51,7 @@ end
 def run_applet
   Dir.chdir('FittsStudy') do
     log "Running block"
-    system "java -jar FittsTaskTwo.jar"
-    log "Finished block"
+    spawn "java -jar FittsTaskTwo.jar"
   end
 end
 
@@ -95,9 +96,9 @@ def practice_session_plan()
   log "Practice session"
   [
     {type: :form, name: "Initial questionnaire"},
-    condition_test_plan(1, 2),
+    condition_test_plan(6, 2),
     {type: :game, name: "Practice with game"},
-    condition_test_plan(1, 2),
+    condition_test_plan(7, 2),
     {type: :done, name: "Experiment Finished"}
   ].flatten
 end
