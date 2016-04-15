@@ -19,9 +19,12 @@ last_c = nil
 last_p = nil
 participant_data = []
 data.each do |c, p, b, avg_tp, did_drop|
-  if last_p != p && last_p
+  if (last_p != p && last_p) || (last_c != c && last_c)
     participant_avg = (participant_data.inject(0,:+) / participant_data.size).round(3) unless participant_data.empty?
-    puts "   P#{last_p} average: #{participant_avg} bits/s"
+    best_2_data = participant_data.sort.reverse[0..1]
+    best_2_avg = (best_2_data.inject(0,:+) / best_2_data.size).round(3) unless best_2_data.empty?
+    puts "   P#{last_p} average: #{participant_avg} bits/s     best2: #{best_2_avg} bits/s"
+
     participant_data = []
   end
   puts if last_c != c
