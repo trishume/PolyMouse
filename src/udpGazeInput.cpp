@@ -28,6 +28,7 @@ void udpGazeInput::update() {
 }
 
 bool udpGazeInput::parsePacket(const string &s) {
+  if(s.find("NaN") != std::string::npos) return false;
   ofxJSON json;
   json.parse(s);
 
@@ -36,7 +37,10 @@ bool udpGazeInput::parsePacket(const string &s) {
   if(json.isMember("gaze")) {
     // cout << s << endl;
     auto coords = json["gaze"];
-    val = ofVec2f(coords[0].asFloat(), coords[1].asFloat());
+    ofVec2f recievedCoord = ofVec2f(coords[0].asFloat(), coords[1].asFloat());
+    if(recievedCoord != ofVec2f(0,0)) {
+      val = recievedCoord;
+    }
   }
 
   if(json.isMember("leftEye")) {
