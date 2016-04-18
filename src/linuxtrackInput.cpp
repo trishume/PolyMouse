@@ -40,6 +40,6 @@ void linuxtrackInput::update() {
     countNoChange = 0;
   }
 
-  userEngaged = (countNoChange < 30 && abs(orientation.x) < 35.0);
+  userEngaged = (countNoChange < 30 && abs(orientation.x) < 60.0);
   last = orientation;
 }
