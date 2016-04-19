@@ -108,10 +108,15 @@ def plan_item_actions(item)
   when :done
     [["Quit", -> { exit(0) }]]
   when :fitts
-    [["Start Applet", -> {
-      setup_config(item[:condition_code], item[:block_num])
-      run_applet()
-    }]]
+    [
+      ["Start Applet", -> {
+        setup_config(item[:condition_code], item[:block_num])
+        run_applet()
+      }],
+      ["Start PolyMouse", -> {
+        spawn("open /Users/tristan/Box/Dev/Projects/PolyMouse/bin/PolyMouseDebug.app")
+      }],
+    ]
   when :setup
     [
       ["Start PolyMouse", -> {
