@@ -22,10 +22,18 @@ LATIN_SQUARE = [
 ]
 
 TEMPLATE_CONFIG = IO.read("FittsTaskTwo-template.cfg")
-raise "Need PARTICIPANT number" unless ARGV[0]
-PARTICIPANT = ARGV[0].to_i
-raise "Need SESSION number" unless ARGV[1]
-SESSION = ARGV[1].to_i
+
+unless ARGV.empty?
+  raise "Need PARTICIPANT number" unless ARGV[0]
+  PARTICIPANT = ARGV[0].to_i
+  raise "Need SESSION number" unless ARGV[1]
+  SESSION = ARGV[1].to_i
+else
+  print "Participant number (e.g 31): "
+  PARTICIPANT = gets.to_i
+  print "Session number (1 for practice, 2 for main experiment): "
+  SESSION = gets.to_i
+end
 
 def log(msg)
   logline = "#{Time.now.to_s} / #{PARTICIPANT}: #{msg}"
@@ -114,16 +122,16 @@ def plan_item_actions(item)
         run_applet()
       }],
       ["Start PolyMouse", -> {
-        spawn("open /Users/tristan/Box/Dev/Projects/PolyMouse/bin/PolyMouseDebug.app")
+        spawn("open ../PolyMouse/bin/PolyMouseDebug.app")
       }],
     ]
   when :setup
     [
       ["Start PolyMouse", -> {
-        spawn("open /Users/tristan/Box/Dev/Projects/PolyMouse/bin/PolyMouseDebug.app")
+        spawn("open ../PolyMouse/bin/PolyMouseDebug.app")
       }],
       ["Start Pupil", -> {
-        Dir.chdir("/Users/tristan/misc/pupil/pupil_src/capture") { spawn("python main.py") }
+        Dir.chdir("../pupil/pupil_src/capture") { spawn("python main.py") }
       }],
     ]
   when :game
