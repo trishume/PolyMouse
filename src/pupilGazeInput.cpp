@@ -5,8 +5,12 @@
 #include "pupilGazeInput.h"
 #include "ofAppRunner.h"
 #include "ofxJSON.h"
+#include "msgpack.hpp"
+#include "form.hpp"
+// #include "json.hpp"
 #include <iostream>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -27,7 +31,7 @@ void pupilGazeInput::connectBus(string port) {
   cout << "found server on port " << port << endl;
   string busAddress("tcp://localhost:");
   busAddress.append(port);
-  subscriber.setFilter("gaze");
+  subscriber.setFilter("surface");
   subscriber.connect(busAddress);
   cout << "connected" << endl;
   connected = true;
@@ -43,28 +47,32 @@ void pupilGazeInput::update() {
     return;
   }
   while (subscriber.hasWaitingMessage()) {
-    ofBuffer data;
+    string data;
     subscriber.getNextMessage(data);
 
-    // cout << "received data: " << data << endl;
-    string msg = data.getText();
-    if(msg == "gaze_positions") {
+    if(data == "surface") {
       triggered = true;
     } else if(triggered) {
-      parsePacket(msg);
+      parsePacket(data);
       triggered = false;
     }
   }
 }
 
 bool pupilGazeInput::parsePacket(const string &s) {
-  ofxJSON json;
-  json.parse(s);
+  // cout << "received data: " << s << endl;
+  std::istringstream inbuf(s);
+  goodform::variant var;
+  goodform::msgpack::deserialize(inbuf, var);
+  // goodform::json::serialize(var, cout);
+  goodform::form form(var);
 
-  if(json.size() == 0) return false;
-  auto coords = json[0]["realtime gaze on screen"];
-  ofVec2f fraction(coords[0].asFloat(), coords[1].asFloat());
+  auto coords = form.at("gaze_on_srf").at(0);
+  if(!form.is_good()) return false;
+
+  ofVec2f fraction(coords.at(0).float32().val(), coords.at(1).float32().val());
   val = ofVec2f(fraction.x * screenW, (1-fraction.y) * screenH);
+  // cout << "got coords " << val << endl;
 
   return true;
 }
