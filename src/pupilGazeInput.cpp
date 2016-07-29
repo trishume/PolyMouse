@@ -14,16 +14,34 @@ pupilGazeInput::pupilGazeInput() {}
 
 void pupilGazeInput::setup() {
   triggered = false;
+  connected = false;
   screenW = ofGetScreenWidth();
   screenH = ofGetScreenHeight();
 
-  cout << "connecting to server..." << endl;
-  subscriber.connect("tcp://localhost:5000");
-  // subscriber.setFilter("gaze_positions");
+  cout << "sending port request ..." << endl;
+  req.connect("tcp://localhost:50020");
+  req.send("SUB_PORT");
+}
+
+void pupilGazeInput::connectBus(string port) {
+  cout << "found server on port " << port << endl;
+  string busAddress("tcp://localhost:");
+  busAddress.append(port);
+  subscriber.setFilter("gaze");
+  subscriber.connect(busAddress);
   cout << "connected" << endl;
+  connected = true;
 }
 
 void pupilGazeInput::update() {
+  if(!connected) {
+    if(req.hasWaitingMessage()) {
+      string port;
+      req.receive(port);
+      connectBus(port);
+    }
+    return;
+  }
   while (subscriber.hasWaitingMessage()) {
     ofBuffer data;
     subscriber.getNextMessage(data);
