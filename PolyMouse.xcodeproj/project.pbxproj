@@ -72,6 +72,10 @@
 		6A7736BA1CA0499600C64723 /* lookMouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A7736B81CA0499600C64723 /* lookMouseInput.cpp */; };
 		6A9FF3921C581FC100E19519 /* soundDetector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6A9FF3901C581FC100E19519 /* soundDetector.cpp */; };
 		6AA5740B1C692C83008A72F9 /* libvamp-hostsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */; };
+		6AAC53531D4C028700F5ED7A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC534E1D4C028700F5ED7A /* README.md */; };
+		6AAC53541D4C028700F5ED7A /* json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC53501D4C028700F5ED7A /* json.cpp */; };
+		6AAC53551D4C028700F5ED7A /* msgpack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC53511D4C028700F5ED7A /* msgpack.cpp */; };
+		6AAC53561D4C028700F5ED7A /* variant.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AAC53521D4C028700F5ED7A /* variant.cpp */; };
 		6ABDF1131C3D5F1500892E5F /* pupilGazeInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */; };
 		6C6DB4EA7C22776DC107E376 /* stream_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CF6BD8B4A22CCF314FA86F04 /* stream_engine.cpp */; };
 		6DE8BAB9DA0E7CC5AC9B5E0A /* pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9342257C8DEEF53DE67F70C /* pipe.cpp */; };
@@ -340,6 +344,16 @@
 		6A9FF3901C581FC100E19519 /* soundDetector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soundDetector.cpp; sourceTree = "<group>"; };
 		6A9FF3911C581FC100E19519 /* soundDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soundDetector.h; sourceTree = "<group>"; };
 		6AA5740A1C692C83008A72F9 /* libvamp-hostsdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libvamp-hostsdk.a"; path = "/usr/local/Cellar/vamp-plugin-sdk/2.6/lib/libvamp-hostsdk.a"; sourceTree = "<absolute>"; };
+		6AAC53471D4C028700F5ED7A /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		6AAC53491D4C028700F5ED7A /* form.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = form.hpp; sourceTree = "<group>"; };
+		6AAC534A1D4C028700F5ED7A /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		6AAC534B1D4C028700F5ED7A /* msgpack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = msgpack.hpp; sourceTree = "<group>"; };
+		6AAC534C1D4C028700F5ED7A /* variant.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = variant.hpp; sourceTree = "<group>"; };
+		6AAC534D1D4C028700F5ED7A /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		6AAC534E1D4C028700F5ED7A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		6AAC53501D4C028700F5ED7A /* json.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json.cpp; sourceTree = "<group>"; };
+		6AAC53511D4C028700F5ED7A /* msgpack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgpack.cpp; sourceTree = "<group>"; };
+		6AAC53521D4C028700F5ED7A /* variant.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = variant.cpp; sourceTree = "<group>"; };
 		6ABDF1101C3D5EBD00892E5F /* inputProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputProcess.h; sourceTree = "<group>"; };
 		6ABDF1111C3D5F1500892E5F /* pupilGazeInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = pupilGazeInput.cpp; path = src/pupilGazeInput.cpp; sourceTree = SOURCE_ROOT; };
 		6ABDF1121C3D5F1500892E5F /* pupilGazeInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pupilGazeInput.h; sourceTree = "<group>"; };
@@ -597,6 +611,7 @@
 		6A3DBC8A1C3DC1450074E872 /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				6AAC53461D4C028700F5ED7A /* goodform */,
 				6A3DBC8B1C3DC1450074E872 /* linuxtrack.c */,
 				6A3DBC8C1C3DC1450074E872 /* linuxtrack.h */,
 			);
@@ -690,6 +705,39 @@
 			);
 			name = src;
 			path = ../of_v0.9.0_osx_release/addons/ofxNetwork/src;
+			sourceTree = "<group>";
+		};
+		6AAC53461D4C028700F5ED7A /* goodform */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC53471D4C028700F5ED7A /* CMakeLists.txt */,
+				6AAC53481D4C028700F5ED7A /* include */,
+				6AAC534D1D4C028700F5ED7A /* LICENSE.txt */,
+				6AAC534E1D4C028700F5ED7A /* README.md */,
+				6AAC534F1D4C028700F5ED7A /* src */,
+			);
+			path = goodform;
+			sourceTree = "<group>";
+		};
+		6AAC53481D4C028700F5ED7A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC53491D4C028700F5ED7A /* form.hpp */,
+				6AAC534A1D4C028700F5ED7A /* json.hpp */,
+				6AAC534B1D4C028700F5ED7A /* msgpack.hpp */,
+				6AAC534C1D4C028700F5ED7A /* variant.hpp */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		6AAC534F1D4C028700F5ED7A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				6AAC53501D4C028700F5ED7A /* json.cpp */,
+				6AAC53511D4C028700F5ED7A /* msgpack.cpp */,
+				6AAC53521D4C028700F5ED7A /* variant.cpp */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		6E54289412D2D94F45A05113 /* libs */ = {
@@ -1261,6 +1309,7 @@
 				6E7B1BECAEE71AA06C7AAF7A /* ofxTransparentWindow.cpp in Sources */,
 				1F3BDD0CBAB9D77C4E547B96 /* ofxTransparentWindowUtil.mm in Sources */,
 				6A61E6DD1C99CF91002851CE /* freezeTransformer.cpp in Sources */,
+				6AAC53541D4C028700F5ED7A /* json.cpp in Sources */,
 				1D98B3DE08BCE404AFE5A6F1 /* ofxXmlSettings.cpp in Sources */,
 				36F6AEF0E5BC35C463B1DA79 /* tinyxml.cpp in Sources */,
 				06B1D3F8A5DE88E5851D8D3F /* tinyxmlerror.cpp in Sources */,
@@ -1293,6 +1342,7 @@
 				108AD6D372C2E55BBBF5B80D /* ip.cpp in Sources */,
 				F16FB90766AB20929AA2A2E1 /* ipc_address.cpp in Sources */,
 				B802F971A447E5E69969FC27 /* ipc_connecter.cpp in Sources */,
+				6AAC53531D4C028700F5ED7A /* README.md in Sources */,
 				D802E5EFD1609FC03FB84E4C /* ipc_listener.cpp in Sources */,
 				B3411871BC4E8903DC2D38DC /* kqueue.cpp in Sources */,
 				6A61E6ED1C9B3A1D002851CE /* ofxUDPManager.cpp in Sources */,
@@ -1303,6 +1353,7 @@
 				483F454FAC5126D7BCB32136 /* msg.cpp in Sources */,
 				F7CB67ACBCC7437F4FAC04E4 /* mtrie.cpp in Sources */,
 				6A61E6DA1C90A650002851CE /* jsoncpp.cpp in Sources */,
+				6AAC53551D4C028700F5ED7A /* msgpack.cpp in Sources */,
 				DF8C5ADC905D38C7E0DAC0BB /* norm_engine.cpp in Sources */,
 				7A9E70B8BE3310CA5ED22863 /* null_mechanism.cpp in Sources */,
 				2B251356B69E74A29DCC9D4A /* object.cpp in Sources */,
@@ -1327,6 +1378,7 @@
 				EC7B7E0BF673B827DB1B64B0 /* random.cpp in Sources */,
 				4923A259CEB07FAC8597ADE4 /* raw_decoder.cpp in Sources */,
 				6A3DBC951C3EBC790074E872 /* offsetTransformer.cpp in Sources */,
+				6AAC53561D4C028700F5ED7A /* variant.cpp in Sources */,
 				3B6D0FAE69D44FC33E32B4F2 /* raw_encoder.cpp in Sources */,
 				FBEA6A02E4369CA573346490 /* reaper.cpp in Sources */,
 				2BD812EAD14AD969FEE6B4D3 /* rep.cpp in Sources */,

@@ -8,15 +8,20 @@
 #include "ofVec2f.h"
 #include "ofxZmq.h"
 
+#include <string>
+
 class pupilGazeInput : public inputProcess<ofVec2f> {
 public:
   pupilGazeInput();
   void setup();
   void update();
 private:
-  bool parsePacket(const string &s);
+  bool parsePacket(const std::string &s);
+  void connectBus(std::string port);
   ofxZmqSubscriber subscriber;
+  ofxZmqRequest req;
   bool triggered;
+  bool connected;
   int screenW;
   int screenH;
 };
