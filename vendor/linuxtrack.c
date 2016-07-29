@@ -52,6 +52,9 @@ typedef int (*ltr_get_pose_t)(float *heading,
 typedef int (*ltr_get_pose_full_t)(linuxtrack_pose_t *pose, float blobs[], int num_blobs, int *blobs_read);
 typedef linuxtrack_state_type (*ltr_get_tracking_state_t)(void);
 typedef const char *(*ltr_explain_t)(linuxtrack_state_type);
+typedef int (*ltr_get_frame_t)(int *req_width, int *req_height, size_t buf_size, uint8_t *buffer);
+typedef int (*ltr_get_notify_pipe_t)(void);
+typedef int (*ltr_wait_t)(int timeout);
 
 
 static ltr_init_t ltr_init_fun = NULL;
@@ -63,6 +66,12 @@ static ltr_get_pose_t ltr_get_pose_fun = NULL;
 static ltr_get_pose_full_t ltr_get_pose_full_fun = NULL;
 static ltr_get_tracking_state_t ltr_get_tracking_state_fun = NULL;
 static ltr_explain_t ltr_explain_fun = NULL;
+static ltr_get_pose_t ltr_get_abs_pose_fun = NULL;
+static ltr_gp_t ltr_request_frames_fun = NULL;
+static ltr_get_frame_t ltr_get_frame_fun = NULL;
+static ltr_gp_t ltr_notification_on_fun = NULL;
+static ltr_get_notify_pipe_t ltr_get_notify_pipe_fun = NULL;
+static ltr_wait_t ltr_wait_fun = NULL;
 
 static void *lib_handle = NULL;
 
@@ -83,6 +92,12 @@ static struct func_defs_t functions[] =
   {(char*)"ltr_get_pose_full", (void *)&ltr_get_pose_full_fun, 1},
   {(char*)"ltr_get_tracking_state", (void *)&ltr_get_tracking_state_fun, 1},
   {(char*)"ltr_explain", (void *)&ltr_explain_fun, 0},
+  {(char*)"ltr_get_abs_pose", (void *)&ltr_get_abs_pose_fun, 1},
+  {(char*)"ltr_request_frames", (void *)&ltr_request_frames_fun, 0},
+  {(char*)"ltr_get_frame", (void *)&ltr_get_frame_fun, 0},
+  {(char*)"ltr_notification_on", (void *)&ltr_notification_on_fun, 0},
+  {(char*)"ltr_get_notify_pipe", (void *)&ltr_get_notify_pipe_fun, 0},
+  {(char*)"ltr_wait", (void *)&ltr_wait_fun, 0},
   {(char*)NULL, NULL, 0}
 };
 
@@ -192,6 +207,23 @@ int linuxtrack_get_pose(float *heading,
 }
 
 //RetVal 0 means no new data
+int linuxtrack_get_abs_pose(float *heading,
+                            float *pitch,
+                            float *roll,
+                            float *tx,
+                            float *ty,
+                            float *tz,
+                            uint32_t *counter)
+{
+  if(ltr_get_abs_pose_fun == NULL){
+    *heading = *pitch = *roll = *tx = *ty = *tz = 0.0f;
+    *counter = 0;
+    return 0;
+  }
+  return ltr_get_abs_pose_fun(heading, pitch, roll, tx, ty, tz, counter);
+}
+
+//RetVal 0 means no new data
 int linuxtrack_get_pose_full(linuxtrack_pose_t *pose, float blobs[], int num_blobs, int *blobs_read)
 {
   if(ltr_get_pose_full_fun == NULL){
@@ -288,8 +320,8 @@ char *linuxtrack_get_prefix()
     if(fgets(line, 4095, f) != NULL){
       if((sscanf(line, "%s = \"%[^\"\n]", key, val) == 2) &&
         strcasecmp(key, "prefix") == 0){
-	prefix = strdup(val);
-	break;
+  prefix = strdup(val);
+  break;
       }
     }
   }
@@ -421,4 +453,45 @@ const char *linuxtrack_explain(linuxtrack_state_type status)
      break;
   }
   return res;
+}
+
+
+linuxtrack_state_type linuxtrack_request_frames(void)
+{
+  if(ltr_request_frames_fun == NULL){
+    return err_NOT_INITIALIZED;
+  }
+  return ltr_request_frames_fun();
+}
+
+int linuxtrack_get_frame(int *req_width, int *req_height, size_t buf_size, uint8_t *buffer)
+{
+  if(ltr_get_frame_fun == NULL){
+    return err_NOT_INITIALIZED;
+  }
+  return ltr_get_frame_fun(req_width, req_height, buf_size, buffer);
+}
+
+linuxtrack_state_type linuxtrack_notification_on(void)
+{
+  if(ltr_notification_on_fun == NULL){
+    return err_NOT_INITIALIZED;
+  }
+  return ltr_notification_on_fun();
+}
+
+int linuxtrack_get_notify_pipe(void)
+{
+  if(ltr_get_notify_pipe_fun == NULL){
+    return err_NOT_INITIALIZED;
+  }
+  return ltr_get_notify_pipe_fun();
+}
+
+int linuxtrack_wait(int timeout)
+{
+  if(ltr_wait_fun == NULL){
+    return err_NOT_INITIALIZED;
+  }
+  return ltr_wait_fun(timeout);
 }
